@@ -1,8 +1,8 @@
 public class COMPTE {
-	private int num;
-	private float solde;
-	private String devise;
-	private CLIENT titulaire;
+	protected int num;
+	protected float solde;
+	protected String devise;
+	protected CLIENT titulaire;
 	public float montantdebite;
 	public float montantcredite;
 	
@@ -46,8 +46,9 @@ public class COMPTE {
 	public void crediter(float montantcredite) {
 		this.solde+=montantcredite;
 	}
-	public void decrire() {
-		System.out.println("n°"+num+" - solde : "+solde+" "+devise );
+	public void DECRIRE() {
+		System.out.print("n°"+num+" - solde : "+solde+" "+devise );
 	}
+	
 	
 }

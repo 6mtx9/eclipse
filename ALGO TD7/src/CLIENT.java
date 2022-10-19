@@ -79,7 +79,20 @@ public class CLIENT {
 		this.adresse = adresse;
 		this.telephone = telephone;
 		this.email = email;
-		mescomptes = new ArrayList<COMPTE>();
+	}
+	
+	public CLIENT(String nom, String prenom, Boolean genre, Date date, String categorie, String adresse, int telephone,
+			String email, ArrayList<COMPTE> mescomptes) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.genre = genre;
+		this.date = date;
+		this.categorie = categorie;
+		this.adresse = adresse;
+		this.telephone = telephone;
+		this.email = email;
+		this.mescomptes = mescomptes;
 	}
 	public void info_comptes() {
 		if (genre==true) {
@@ -89,11 +102,12 @@ public class CLIENT {
 			g="M.";
 		}
 		System.out.println("Liste des comptes de "+g+nom+" "+prenom);
-		for(int i=0;i<mescomptes.size();i=i+1)
+		System.out.println("");
+		for(int i=0;i<mescomptes.size();i++)
 		{
-			System.out.println("n°: "+mescomptes.get(i).getNum()+" - solde : "+mescomptes.get(i).getSolde()+" "+mescomptes.get(i).getDevise());
+			mescomptes.get(i).DECRIRE();
 		}
-		
+		System.out.println("");
 	}
 	
 }
