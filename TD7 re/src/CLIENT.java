@@ -1,30 +1,34 @@
 import java.util.ArrayList;
-import java.util.Date;
 
 public class CLIENT {
 	private String nom;
 	private String prenom;
 	private Boolean genre;
-	private String date;
+	private String dateN;
 	private String categorie;
 	private String adresse;
 	private int telephone;
 	private String email;
 	private ArrayList<COMPTE> mescomptes;
+	private String g;
 	
-	public String g;
-	
+	public ArrayList<COMPTE> getMescomptes() {
+		return mescomptes;
+	}
+	public void setMescomptes(ArrayList<COMPTE> mescomptes) {
+		this.mescomptes = mescomptes;
+	}
 	public String getNom() {
 		return nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public String getPernom() {
+	public String getPrenom() {
 		return prenom;
 	}
-	public void setPernom(String pernom) {
-		this.prenom = pernom;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 	public Boolean getGenre() {
 		return genre;
@@ -32,11 +36,11 @@ public class CLIENT {
 	public void setGenre(Boolean genre) {
 		this.genre = genre;
 	}
-	public String getDate() {
-		return date;
+	public String getDateN() {
+		return dateN;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setDateN(String dateN) {
+		this.dateN = dateN;
 	}
 	public String getCategorie() {
 		return categorie;
@@ -62,63 +66,47 @@ public class CLIENT {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public ArrayList<COMPTE> getMescomptes() {
-		return mescomptes;
-	}
-	public void setMescomptes(ArrayList<COMPTE> mescomptes) {
-		this.mescomptes = mescomptes;
-	}
-	public CLIENT(String nom, String pernom, Boolean genre, String date, String categorie, String adresse, int telephone,
-			String email) {
+	
+	public CLIENT(String nom, String prenom, Boolean genre, String dateN, String categorie, String adresse,
+			int telephone, String email, ArrayList<COMPTE> mescomptes) {
 		super();
 		this.nom = nom;
-		this.prenom = pernom;
+		this.prenom = prenom;
 		this.genre = genre;
-		this.date = date;
+		this.dateN = dateN;
+		this.categorie = categorie;
+		this.adresse = adresse;
+		this.telephone = telephone;
+		this.email = email;
+		this.mescomptes = mescomptes;
+	}
+	
+	public CLIENT(String nom, String prenom, Boolean genre, String dateN, String categorie, String adresse,
+			int telephone, String email) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.genre = genre;
+		this.dateN = dateN;
 		this.categorie = categorie;
 		this.adresse = adresse;
 		this.telephone = telephone;
 		this.email = email;
 	}
 	
-	public CLIENT(String nom, String prenom, Boolean genre, String date, String categorie, String adresse, int telephone,
-			String email, ArrayList<COMPTE> mescomptes) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.genre = genre;
-		this.date = date;
-		this.categorie = categorie;
-		this.adresse = adresse;
-		this.telephone = telephone;
-		this.email = email;
-		this.mescomptes = mescomptes;
-	}
 	public void info_comptes() {
-		if (genre==true) {
-			g="Mme.";
+		if (this.genre) {
+			g="Mr.";
 		}
 		else {
-			g="M.";
-		}
-		System.out.println("Liste des comptes de "+g+nom+" "+prenom);
-		System.out.println("");
-		for(int i=0;i<mescomptes.size();i++)
-		{
-			mescomptes.get(i).DECRIRE();
-		}
-		System.out.println("");
-	}
-	public String Ligne(){
-		String str;
-		if (genre==true) {
 			g="Mme.";
 		}
-		else {
-			g="M.";
+		System.out.println("Liste des comptes de "+g+"Gravouil Benjamin");
+		System.out.println("");
+		for (int i=0;i<mescomptes.size();i++) {
+			mescomptes.get(i).decrire();
 		}
-		str=g+" "+nom+" "+prenom+" "+email;
-		return str;
+		System.out.println("");
 	}
 	
 }

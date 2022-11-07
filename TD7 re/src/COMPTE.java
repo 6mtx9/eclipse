@@ -1,14 +1,20 @@
 public class COMPTE {
-	protected int num;
-	protected float solde;
-	protected String devise;
-	protected CLIENT titulaire;
+	private int num;
+	private CLIENT titulaire;
+	private float solde;
+	private String devise;
 	
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public CLIENT getTitulaire() {
+		return titulaire;
+	}
+	public void setTitulaire(CLIENT titulaire) {
+		this.titulaire = titulaire;
 	}
 	public float getSolde() {
 		return solde;
@@ -22,19 +28,12 @@ public class COMPTE {
 	public void setDevise(String devise) {
 		this.devise = devise;
 	}
-	public CLIENT getTitulaire() {
-		return titulaire;
-	}
-	public void setTitulaire(CLIENT titulaire) {
-		this.titulaire = titulaire;
-	}
-	
-	public COMPTE(int num, float solde, String devise, CLIENT titulaire) {
+	public COMPTE(int num, CLIENT titulaire, float solde, String devise) {
 		super();
 		this.num = num;
+		this.titulaire = titulaire;
 		this.solde = solde;
 		this.devise = devise;
-		this.titulaire = titulaire;
 	}
 	
 	public void debiter(float montantdebite) {
@@ -44,9 +43,7 @@ public class COMPTE {
 	public void crediter(float montantcredite) {
 		this.solde+=montantcredite;
 	}
-	public void DECRIRE() {
-		System.out.print("n°"+num+" - solde : "+solde+" "+devise );
+	public void decrire() {
+		System.out.println("n° : "+this.num+" - solde : "+this.solde+" €");
 	}
-	
-	
 }

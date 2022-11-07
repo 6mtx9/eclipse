@@ -35,13 +35,13 @@ public class COURANT extends COMPTE{
 		super.DECRIRE();
 		System.out.println("- Plafond Max = "+plafondmax +"€");
 	}
-	public void RETIRER(float var) {
-		if (var>plafondmax) {
+	public void RETIRER(float montantretire) {
+		if (montantretire>plafondmax) {
 			System.out.println("Votre saisie dépasse le plafond maximal de "+plafondmax+"€");
 			System.out.println("");
 		}
 		else {
-			super.solde=super.solde-var;
+			super.solde=super.solde-montantretire;
 		}
 	}
 	
