@@ -1,7 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class ADHERENT {
+	private String num;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -21,11 +23,11 @@ public class ADHERENT {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getNumeroCarte() {
-		return numeroCarte;
+	public String getNum() {
+		return num;
 	}
-	public void setNumeroCarte(String numeroCarte) {
-		this.numeroCarte = numeroCarte;
+	public void setNumeroCarte(String num) {
+		this.num = num;
 	}
 	public String getEmail() {
 		return email;
@@ -39,12 +41,12 @@ public class ADHERENT {
 	public void setListelivres(ArrayList<LIVRE> listelivres) {
 		this.listelivres = listelivres;
 	}
-	public ADHERENT(String nom, String prenom, String email, String numeroCarte) {
+	public ADHERENT(String nom, String prenom, String email, String num) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.numeroCarte = numeroCarte;
+		this.num = num;
 		listelivres = new ArrayList<LIVRE>();
 	}
 	
@@ -59,7 +61,7 @@ public class ADHERENT {
 		System.out.println("Nom de l'adhérent = "+nom);
 		System.out.println("Prenom de l'adhérent = "+prenom);
 		System.out.println("Email = "+email);
-		System.out.println("Numero de carte de l'adhérent = "+numeroCarte);
+		System.out.println("Numero de carte de l'adhérent = "+num);
 		System.out.println("");
 	}
 	public void AFFICHERMESLIVRES() {

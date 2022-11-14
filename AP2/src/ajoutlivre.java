@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
@@ -20,7 +21,6 @@ public class ajoutlivre {
 	private JTextArea txtrAuteur;
 	private JTextArea r;
 	private JButton btnPrcedent;
-	private LIVRE livre;
 
 	/**
 	 * Launch the application.
@@ -59,8 +59,8 @@ public class ajoutlivre {
 		entrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (ISBN.getText()!=null) {
-					int nombre = Integer.parseInt(ISBN.getText());
-					livre = new LIVRE (ISBN.getText(),titre.getText(),auteur.getText());
+					/*int nombre = Integer.parseInt(ISBN.getText());
+					livre = new LIVRE (ISBN.getText(),titre.getText(),auteur.getText()); JAVA CREATION USELESS*/
 				}
 				else {
 					

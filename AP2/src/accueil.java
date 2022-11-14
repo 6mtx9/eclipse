@@ -65,9 +65,5 @@ public class accueil {
 		JButton rendre = new JButton("Retour");
 		rendre.setBounds(235, 153, 183, 49);
 		frame.getContentPane().add(rendre);
-		
-		JButton btnNewButton = new JButton("Connexion");
-		btnNewButton.setBounds(301, 12, 117, 25);
-		frame.getContentPane().add(btnNewButton);
 	}
 }

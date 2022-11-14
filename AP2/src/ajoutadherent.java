@@ -1,11 +1,18 @@
 import java.awt.EventQueue;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
 import java.awt.Color;
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
@@ -20,7 +27,14 @@ public class ajoutadherent {
 	private JTextField email;
 	private JTextField num;
 	private JLabel label;
-	ADHERENT adherent;
+	
+	private static String password="";
+	private static String username="root";
+	private static Connection connection;
+	private static Statement command;
+	private static ResultSet data;
+	static String BDD = "AP2prof";
+	private static String connectionString = "jdbc:mysql://localhost:3306/"+BDD;
 
 	/**
 	 * Launch the application.
@@ -36,6 +50,26 @@ public class ajoutadherent {
 				}
 			}
 		});
+		
+		try {
+			connection = DriverManager.getConnection(connectionString,username,password);
+			command = connection.createStatement();
+			//command.execute("INSERT INTO `PERSONNE` (`id`, `nom`, `prenom`, `age`) VALUES ('9', 'da', 'prenom', '10');");
+			data = command.executeQuery("SELECT nom FROM adherent");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// System.out.println("YESSSSSS");
+			try {
+				if(data.first()) {
+					while (data.next()) {
+						System.out.println("nom : "+data.getString("nom"));
+					}
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -122,11 +156,11 @@ public class ajoutadherent {
 			public void actionPerformed(ActionEvent e) {
 				if (num.getText()!=null) {
 					
-					adherent = new ADHERENT (nom.getText(),prenom.getText(),email.getText(),num.getText());
+					/*adherent = new ADHERENT (nom.getText(),prenom.getText(),email.getText(),num.getText());
 					nom.setText(null);
 					prenom.setText(null);
 					email.setText(null);
-					num.setText(null);
+					num.setText(null); CREATION CLASS JAVA USELESS*/
 					
 				}
 				/*else {
