@@ -98,7 +98,7 @@ public class main {
 			LIVRE livre = findlivre(ISBN);
 			ADHERENT ladherent = findadherent(numadherent);
 			livre.setEmprunteur(ladherent); // ADHERENT DANS LIVRE
-			ladherent.setListelivres(listelivre);
+			ladherent.ajouterlivre(livre);
 			
 		}
 	}
