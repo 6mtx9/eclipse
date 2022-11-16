@@ -2,7 +2,7 @@
 import java.util.Date;
 
 public class AUTEUR {
-	private int num;
+	private String num;
 	private String nom;
 	private String prenom;
 	private String datenaissance;
@@ -32,14 +32,14 @@ public class AUTEUR {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getNum() {
+	public String getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 	
-	public AUTEUR(int num, String nom, String prenom, String datenaissance, String description) {
+	public AUTEUR(String num, String nom, String prenom, String datenaissance, String description) {
 		super();
 		this.num = num;
 		this.nom = nom;
@@ -47,7 +47,7 @@ public class AUTEUR {
 		this.datenaissance = datenaissance;
 		this.description = description;
 	}
-	public AUTEUR(int num, String nom, String prenom, String datenaissance) {
+	public AUTEUR(String num, String nom, String prenom, String datenaissance) {
 		super();
 		this.num = num;
 		this.nom = nom;

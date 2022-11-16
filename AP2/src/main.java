@@ -20,10 +20,10 @@ public class main {
 		String password="";
 		String username="root";
 		Connection connection;
-		Statement command;
+		Statement command,cmd;
 		String BDD = "AP2prof";
 		String connectionString = "jdbc:mysql://localhost:3306/"+BDD;
-		ResultSet data,data2,data3;
+		ResultSet data,data2,data3,data4,data5;
 
 		Class.forName("com.mysql.jdbc.Driver");
 		// System.out.println(connectionString+"-"+username+"-"+password); IMPRESSION url / username / password
@@ -37,7 +37,7 @@ public class main {
 		String requete = "SELECT * FROM livre";
 		data = command.executeQuery(requete);
 		// AJOUT LISTE + IMPRESSION
-		while (data.next()) {
+		while (data.next() /* TANT QUE IL Y A DES DATA NEXT*/ ) { 
 			// LIVRE livre = "livre"+data.getString(1);
 			// System.out.println(livre);
 			LIVRE livre = new LIVRE (data.getString(1),data.getString(2),data.getFloat(3));
@@ -66,7 +66,7 @@ public class main {
 		data3 = command.executeQuery(requete3);
 		// AJOUT LISTE + IMPRESSION
 		while (data3.next()) {
-			AUTEUR auteur = new AUTEUR (data3.getInt(1),data3.getString(2),data3.getString(3),data3.getString(4),data3.getString(5));
+			AUTEUR auteur = new AUTEUR (data3.getString(1),data3.getString(2),data3.getString(3),data3.getString(4),data3.getString(5));
 			listeauteur.add(auteur);
 		}
 		// BOUCLE LISTE AUTEUR
@@ -76,15 +76,38 @@ public class main {
 		
 		LIVRE testlivre = findlivre("1");
 		ADHERENT testadherent = findadherent("2");
-		AUTEUR testauteur = findauteur(1);
+		AUTEUR testauteur = findauteur("1");
 		
+		// AJOUT DE AUTEUR AU LIVRE
+		String requete4 = "SELECT auteur.num, livre.ISBN FROM auteur,livre WHERE livre.auteur=auteur.num";
+		cmd = connection.createStatement();
+		data4 = cmd.executeQuery(requete4);
+		while (data4.next()) {
+			String numauteur = data4.getString(1); // numero auteur attribué dans la variable numauteur
+			String ISBN = data4.getString(2); 
+			LIVRE livre = findlivre(ISBN);
+			AUTEUR lauteur = findauteur(numauteur);
+			livre.setAuteur(lauteur); // AUTEUR DANS LIVRE
+		}
+		// AJOUT DE A LIVRE
+		String requete5 ="SELECT adherent.num, livre.ISBN, FROM livre,adherent WHERE livre.adherent=adherent.num";
+		data5 = cmd.executeQuery(requete5);
+		while (data5.next()) {
+			String numadherent = data5.getString(1); // numero adherent attribué dans la variable numadherent
+			String ISBN = data5.getString(2);
+			LIVRE livre = findlivre(ISBN);
+			ADHERENT ladherent = findadherent(numadherent);
+			livre.setEmprunteur(ladherent); // ADHERENT DANS LIVRE
+			ladherent.setListelivres(listelivre);
+			
+		}
 	}
 	
 	public static LIVRE findlivre (String ISBN) {
 		LIVRE lelivre = null;
 		for (int i=0;i<listelivre.size();i++) {
 			if (listelivre.get(i).getISBN().equals(ISBN)) {
-				System.out.println("ISBN trouvé");
+				//System.out.println("ISBN trouvé");
 				return lelivre;
 			}
 			else {
@@ -98,7 +121,7 @@ public class main {
 		ADHERENT ladherent = null;
 		for (int i=0;i<listeadherent.size();i++) {
 			if (listeadherent.get(i).getNum().equals(num)) {
-				System.out.println("adherent trouvé");
+				//System.out.println("adherent trouvé");
 				return ladherent;
 			}
 			else {
@@ -108,15 +131,15 @@ public class main {
 		return null;
 	}
 	
-	public static AUTEUR findauteur (int num) {
+	public static AUTEUR findauteur (String num) {
 		AUTEUR lauteur = null;
 		for (int i=0;i<listeauteur.size();i++) {
-			if (listeauteur.get(i).getNum()==num) {
-				System.out.println("auteur trouvé");
+			if (listeauteur.get(i).getNum().equals(num)) {
+				//System.out.println("auteur trouvé");
 				return lauteur;
 			}
 			else {
-				System.out.println("auteur non trouvé");
+				System.out.println("auteur non trouvé"+listeauteur.get(i).getNom());
 			}
 		}
 		return null;

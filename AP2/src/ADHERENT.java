@@ -41,12 +41,12 @@ public class ADHERENT {
 	public void setListelivres(ArrayList<LIVRE> listelivres) {
 		this.listelivres = listelivres;
 	}
-	public ADHERENT(String nom, String prenom, String email, String num) {
+	public ADHERENT(String num,String nom, String prenom, String email) {
 		super();
+		this.num = num;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
-		this.num = num;
 		listelivres = new ArrayList<LIVRE>();
 	}
 	
@@ -68,5 +68,7 @@ public class ADHERENT {
 		System.out.println("Liste livres empruntés = "+listelivres);
 	}
 	
-	
+	public void ajouterlivre(LIVRE livre) {
+		listelivres.add(livre);
+	}
 }
