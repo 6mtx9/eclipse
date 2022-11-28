@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import controller.mainMVC;
 import model.model;
 
 import java.awt.Color;
@@ -32,14 +33,6 @@ public class ajoutadherent {
 	private JTextField email;
 	private JTextField num;
 	private JLabel label;
-	
-	private static String password="";
-	private static String username="root";
-	private static Connection connection;
-	private static Statement command;
-	private static ResultSet data;
-	static String BDD = "AP2prof";
-	private static String connectionString = "jdbc:mysql://localhost:3306/"+BDD;
 
 	/**
 	 * Launch the application.
@@ -62,6 +55,7 @@ public class ajoutadherent {
 
 	/**
 	 * Create the application.
+	 * @throws SQLException 
 	 */
 	public ajoutadherent() {
 		initialize();
@@ -79,39 +73,42 @@ public class ajoutadherent {
 		frame.getContentPane().setLayout(null);
 		
 		nom = new JTextField();
-		nom.setBounds(147, 81, 238, 20);
+		nom.setBounds(167, 92, 238, 20);
 		nom.setFont(new Font("Arial", Font.PLAIN, 13));
 		frame.getContentPane().add(nom);
 		nom.setColumns(10);
 		
 		prenom = new JTextField();
-		prenom.setBounds(147, 118, 238, 20);
+		prenom.setBounds(167, 128, 238, 20);
 		prenom.setFont(new Font("Arial", Font.PLAIN, 13));
 		prenom.setColumns(10);
 		frame.getContentPane().add(prenom);
 		
 		email = new JTextField();
-		email.setBounds(147, 149, 238, 20);
+		email.setBounds(167, 162, 238, 20);
 		email.setFont(new Font("Arial", Font.PLAIN, 13));
 		email.setColumns(10);
 		frame.getContentPane().add(email);
 		
 		JTextArea txtrNom = new JTextArea();
-		txtrNom.setBounds(29, 81, 108, 22);
+		txtrNom.setEditable(false);
+		txtrNom.setBounds(29, 94, 108, 22);
 		txtrNom.setBackground(new Color(240, 240, 240));
 		txtrNom.setText("Nom :");
 		txtrNom.setFont(new Font("Arial", Font.PLAIN, 13));
 		frame.getContentPane().add(txtrNom);
 		
 		JTextArea txtrPrenom = new JTextArea();
-		txtrPrenom.setBounds(29, 114, 108, 22);
+		txtrPrenom.setEditable(false);
+		txtrPrenom.setBounds(29, 130, 108, 22);
 		txtrPrenom.setBackground(new Color(240, 240, 240));
 		txtrPrenom.setText("Prenom  :");
 		txtrPrenom.setFont(new Font("Arial", Font.PLAIN, 13));
 		frame.getContentPane().add(txtrPrenom);
 		
 		JTextArea txtrEmail = new JTextArea();
-		txtrEmail.setBounds(29, 147, 108, 22);
+		txtrEmail.setEditable(false);
+		txtrEmail.setBounds(27, 164, 108, 22);
 		txtrEmail.setBackground(new Color(240, 240, 240));
 		txtrEmail.setText("Email :");
 		txtrEmail.setFont(new Font("Arial", Font.PLAIN, 13));
@@ -125,14 +122,15 @@ public class ajoutadherent {
 		frame.getContentPane().add(txtrPageDajoutAdhrent);
 		
 		JTextArea txtrEmail_1 = new JTextArea();
-		txtrEmail_1.setBounds(29, 180, 117, 22);
+		txtrEmail_1.setEditable(false);
+		txtrEmail_1.setBounds(29, 60, 117, 22);
 		txtrEmail_1.setText("Numéro adhérent : ");
 		txtrEmail_1.setFont(new Font("Arial", Font.PLAIN, 13));
 		txtrEmail_1.setBackground(new Color(243, 243, 243));
 		frame.getContentPane().add(txtrEmail_1);
 		
 		num = new JTextField();
-		num.setBounds(147, 182, 238, 20);
+		num.setBounds(167, 60, 238, 20);
 		frame.getContentPane().add(num);
 		num.setColumns(10);
 		
@@ -149,23 +147,22 @@ public class ajoutadherent {
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (num.getText()!=null) {
+				if (num.getText()!=null && nom.getText()!=null && prenom.getText()!=null && email.getText()!=null) {
 					
-					/*adherent = new ADHERENT (nom.getText(),prenom.getText(),email.getText(),num.getText());
+					try {
+						mainMVC.getM().creationAdherent(num.getText(),nom.getText(),prenom.getText(),email.getText());
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
 					nom.setText(null);
 					prenom.setText(null);
 					email.setText(null);
-					num.setText(null); CREATION CLASS JAVA USELESS*/
+					num.setText(null);
 					
 				}
-				/*else {
-					int min = 111111111;
-					int max = 999999999;
-					//Generate random int value from 111111111 to 999999999
-					int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-					String random_text=String.valueOf(random_int);
-					adherent1 = new ADHERENT (nom.getText(),prenom.getText(),email.getText(),random_text);
-				}*/
+				
 			}
 		});
 		btnNewButton.setBounds(171, 213, 108, 37);

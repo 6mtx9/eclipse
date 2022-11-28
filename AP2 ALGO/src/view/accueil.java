@@ -55,16 +55,21 @@ public class accueil {
 				}
 			}
 		});
-		info.setBounds(27, 66, 183, 49);
+		info.setBounds(27, 88, 183, 49);
 		frame.getContentPane().add(info);
 		
-		JButton livre = new JButton("Vos livres empruntés");
+		JButton livre = new JButton("Catalogue des livres");
 		livre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				listelivre vca = new listelivre();
+				try {
+					listelivre vca = new listelivre();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
-		livre.setBounds(27, 153, 183, 49);
+		livre.setBounds(27, 176, 183, 49);
 		frame.getContentPane().add(livre);
 		
 		JButton emprunter = new JButton("Emprunter");
@@ -73,7 +78,7 @@ public class accueil {
 				emprunter vca = new emprunter();
 			}
 		});
-		emprunter.setBounds(235, 66, 183, 49);
+		emprunter.setBounds(235, 88, 183, 49);
 		frame.getContentPane().add(emprunter);
 		
 		JButton rendre = new JButton("Retour");
@@ -82,7 +87,21 @@ public class accueil {
 				rendre vca = new rendre();
 			}
 		});
-		rendre.setBounds(235, 153, 183, 49);
+		rendre.setBounds(235, 176, 183, 49);
 		frame.getContentPane().add(rendre);
+		
+		JButton btnBibliothcaire = new JButton("Bibliothècaire");
+		btnBibliothcaire.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					bibliothecaire vca = new bibliothecaire();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnBibliothcaire.setBounds(235, 12, 183, 40);
+		frame.getContentPane().add(btnBibliothcaire);
 	}
 }

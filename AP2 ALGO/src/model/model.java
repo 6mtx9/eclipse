@@ -17,11 +17,11 @@ public class model {
 	public ArrayList<LIVRE> getListLivre() {
 		return ListLivre;
 	}
-	
+
 	public ArrayList<ADHERENT> getListAdherent() {
 		return ListAdherent;
 	}
-	
+
 	public ArrayList<AUTEUR> getListAuteur() {
 		return ListAuteur;
 	}
@@ -81,7 +81,7 @@ public class model {
 			ADHERENT ad=new ADHERENT(resultats.getString(1), resultats.getString(2),  resultats.getString(3), resultats.getString(4));
 			ListAdherent.add(ad);
 		}
-		
+
 		//*********************************************
 		//AJOUT liste de livre e ADHERENT
 		//AJOUT de l'emprunteur e LIVRE
@@ -116,7 +116,7 @@ public class model {
 			findlivre(ISBN).setAuteur(findauteur(numauteur));
 
 		}
-		
+
 
 		/*
 
@@ -165,10 +165,36 @@ public class model {
 		return null;
 	}
 
+	//***************************************************
+	//Ajout d'un nouveau adhérent
+	//***************************************************
+	public void creationAdherent(String num, String nom, String prenom, String email) throws SQLException {
+
+		Statement command = con.createStatement();
+		command.execute("INSERT INTO `adherent` (`num`, `nom`, `prenom`, `email`) VALUES ('"+num+"',' "+nom+"', '"+prenom+"', '"+email+"')");
+	}
+
+	//***************************************************
+	//Ajout d'un nouveau auteur
+	//***************************************************
+	public void creationAuteur(String num, String nom, String prenom, String date_naissance, String description) throws SQLException {
+
+		Statement command = con.createStatement();
+		command.execute("INSERT INTO `auteur` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+num+"',' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
+	}
+
+	//***************************************************
+	//Ajout d'un nouveau livre
+	//***************************************************
+	public void creationlivre(String ISBN, String titre, Float prix, AUTEUR auteur) throws SQLException {
+
+		Statement command = con.createStatement();
+		// command.execute("INSERT INTO `livre` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+num+"',' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
+	}
 	public void setListLivre(ArrayList<LIVRE> listLivre) {
 		ListLivre = listLivre;
 	}
-	
+
 	public void getListAdherent(ArrayList<ADHERENT> listAdherent) {
 		ListAdherent = listAdherent;
 	}

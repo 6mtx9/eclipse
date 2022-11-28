@@ -18,7 +18,7 @@ public class mainMVC {
 		// m.getAll();
 		accueil window = new accueil();
 		
-		mainMVC.getM().getAll();
+		//mainMVC.getM().getAll();
 	}
 
 }

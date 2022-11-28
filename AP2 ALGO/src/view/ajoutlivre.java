@@ -23,6 +23,8 @@ public class ajoutlivre {
 	private JTextArea txtrAuteur;
 	private JTextArea r;
 	private JButton btnPrcedent;
+	private JTextField textField;
+	private JTextArea txtrPrix;
 
 	/**
 	 * Launch the application.
@@ -70,7 +72,7 @@ public class ajoutlivre {
 				}
 			}
 		});
-		entrer.setBounds(169, 183, 107, 38);
+		entrer.setBounds(169, 223, 107, 38);
 		frame.getContentPane().add(entrer);
 		
 		titre = new JTextField();
@@ -84,27 +86,30 @@ public class ajoutlivre {
 		ISBN.setColumns(10);
 		
 		JTextArea txtrAda = new JTextArea();
+		txtrAda.setEditable(false);
 		txtrAda.setFont(new Font("Arial", Font.PLAIN, 13));
 		txtrAda.setBackground(new Color(240, 240, 240));
 		txtrAda.setText("Titre : ");
-		txtrAda.setBounds(51, 60, 62, 23);
+		txtrAda.setBounds(47, 92, 62, 23);
 		frame.getContentPane().add(txtrAda);
 		
 		txtrCodeBarre = new JTextArea();
+		txtrCodeBarre.setEditable(false);
 		txtrCodeBarre.setFont(new Font("Arial", Font.PLAIN, 13));
 		txtrCodeBarre.setBackground(new Color(240, 240, 240));
 		txtrCodeBarre.setText("Code Barre :");
-		txtrCodeBarre.setBounds(51, 92, 95, 22);
+		txtrCodeBarre.setBounds(47, 61, 95, 22);
 		frame.getContentPane().add(txtrCodeBarre);
 		
 		txtrAuteur = new JTextArea();
 		txtrAuteur.setFont(new Font("Arial", Font.PLAIN, 13));
 		txtrAuteur.setText("Auteur : ");
 		txtrAuteur.setBackground(new Color(240, 240, 240));
-		txtrAuteur.setBounds(51, 122, 95, 22);
+		txtrAuteur.setBounds(47, 159, 95, 22);
 		frame.getContentPane().add(txtrAuteur);
 		
 		r = new JTextArea();
+		r.setEditable(false);
 		r.setFont(new Font("Arial", Font.PLAIN, 21));
 		r.setBackground(new Color(240, 240, 240));
 		r.setText("Page d'ajout de livres");
@@ -118,12 +123,25 @@ public class ajoutlivre {
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(29, 183, 117, 37);
+		btnPrcedent.setBounds(29, 224, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
 		
 		JComboBox auteur = new JComboBox();
-		auteur.setBounds(146, 123, 237, 24);
+		auteur.setBounds(146, 155, 237, 24);
 		frame.getContentPane().add(auteur);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(146, 123, 237, 20);
+		frame.getContentPane().add(textField);
+		
+		txtrPrix = new JTextArea();
+		txtrPrix.setEditable(false);
+		txtrPrix.setText("Prix : ");
+		txtrPrix.setFont(new Font("Dialog", Font.PLAIN, 13));
+		txtrPrix.setBackground(new Color(240, 240, 240));
+		txtrPrix.setBounds(47, 127, 62, 23);
+		frame.getContentPane().add(txtrPrix);
 		//for (int i=0;i<size;i++) {
 		//	auteur.addItem(leslivres.get(i));
 		//}

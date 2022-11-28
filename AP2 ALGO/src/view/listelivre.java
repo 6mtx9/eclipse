@@ -5,13 +5,21 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+
+import controller.mainMVC;
+
 import javax.swing.JList;
 import javax.swing.JMenuBar;
 
 import model.ADHERENT;
+import model.LIVRE;
+
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JLabel;
 
 public class listelivre {
 
@@ -35,8 +43,10 @@ public class listelivre {
 
 	/**
 	 * Create the application.
+	 * @throws SQLException 
 	 */
-	public listelivre() {
+	public listelivre() throws SQLException {
+		mainMVC.getM().getAll();
 		initialize();
 		frame.setVisible(true);
 	}
@@ -50,11 +60,6 @@ public class listelivre {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		
-		List list = new List();
-		list.setBounds(115, 63, 139, 72);
-		frame.getContentPane().add(list);
-		
 		JButton btnPrcedent = new JButton("Précedent");
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -64,5 +69,17 @@ public class listelivre {
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
 		btnPrcedent.setBounds(23, 216, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
+		
+		JLabel lblListeDesLivres = new JLabel("Liste des livres");
+		lblListeDesLivres.setBounds(162, 12, 117, 36);
+		frame.getContentPane().add(lblListeDesLivres);
+		
+		List tableauliste = new List();
+		tableauliste.setBounds(63, 54, 318, 148);
+		frame.getContentPane().add(tableauliste);
+		
+		for (int i=0;i!=mainMVC.getM().getListLivre().size();i++) {
+			tableauliste.add("ISBN : "+mainMVC.getM().getListLivre().get(i).getISBN()+" Titre : "+mainMVC.getM().getListLivre().get(i).getTitre()+" Prix : "+mainMVC.getM().getListLivre().get(i).getPrix());
+		}
 	}
 }
