@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import controller.mainMVC;
+
 import java.sql.Connection;
 
 
@@ -191,6 +194,32 @@ public class model {
 		Statement command = con.createStatement();
 		// command.execute("INSERT INTO `livre` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+num+"',' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
 	}
+	//***************************************************
+	//Retour livre
+	//***************************************************
+	public void retour(String ISBN) throws SQLException {
+		Statement command = con.createStatement();
+		command.execute("UPDATE livre SET adherent = null WHERE ISBN="+ISBN);
+		//System.out.println("UPDATE livre SET adherent = null WHERE ISBN="+emprunteur);
+		LIVRE l = mainMVC.getM().findlivre(ISBN);
+		mainMVC.getM().ListLivre.remove(l);
+	}
+	
+	//***************************************************
+	//Emprunt livre
+	//***************************************************
+	public void emprunt(String ISBN,String emprunteur) throws SQLException {
+		Statement command = con.createStatement();
+		command.execute("UPDATE livre SET adherent = "+emprunteur+" WHERE ISBN= "+ISBN );
+		//System.out.println("UPDATE livre SET adherent ="+emprunteur+"WHERE ISBN="+ISBN);
+		LIVRE l = mainMVC.getM().findlivre(ISBN);
+		ADHERENT a = mainMVC.getM().findadherent(emprunteur);
+		l.setEmprunteur(a);
+		a.ajouterlivre(l);
+		
+	}
+	
+	
 	public void setListLivre(ArrayList<LIVRE> listLivre) {
 		ListLivre = listLivre;
 	}

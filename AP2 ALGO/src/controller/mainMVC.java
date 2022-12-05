@@ -15,7 +15,7 @@ public class mainMVC {
 	public static void main(String[] args) throws SQLException{
 		System.out.println("main MVC");
 		m= new model();
-		// m.getAll();
+		m.getAll();
 		accueil window = new accueil();
 		
 		//mainMVC.getM().getAll();

@@ -75,7 +75,12 @@ public class accueil {
 		JButton emprunter = new JButton("Emprunter");
 		emprunter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				emprunter vca = new emprunter();
+				try {
+					emprunter vca = new emprunter();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		emprunter.setBounds(235, 88, 183, 49);
@@ -84,7 +89,12 @@ public class accueil {
 		JButton rendre = new JButton("Retour");
 		rendre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				rendre vca = new rendre();
+				try {
+					rendre vca = new rendre();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		rendre.setBounds(235, 176, 183, 49);
