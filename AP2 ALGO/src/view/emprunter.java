@@ -97,7 +97,8 @@ public class emprunter {
 		frame.getContentPane().add(t);
 
 		JTextArea resultat = new JTextArea();
-		resultat.setBackground(new Color(255, 255, 255));
+		resultat.setEditable(false);
+		resultat.setBackground(new Color(218, 218, 218));
 		resultat.setBounds(79, 49, 275, 22);
 		frame.getContentPane().add(resultat);
 
@@ -115,8 +116,16 @@ public class emprunter {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mainMVC.getM().emprunt(ISBN.getText(), emprunteur.getText());
-					resultat.setText("Vous avez emprunté le livre "+ISBN.getText()+" avec succès.");
+					resultat.setText(null);
+					System.out.println(mainMVC.getM().verif(ISBN.getText()));
+					if (mainMVC.getM().verif(ISBN.getText())=="null") {
+						mainMVC.getM().emprunt(ISBN.getText(), emprunteur.getText());
+						resultat.setText("Vous avez emprunté le livre "+ISBN.getText()+" avec succès.");
+					}
+					else {
+						resultat.setText("Le livre "+ISBN.getText()+" a déjà été emprunté.");
+					}
+					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

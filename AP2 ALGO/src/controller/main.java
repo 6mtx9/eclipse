@@ -71,7 +71,7 @@ public class main {
 		data3 = command.executeQuery(requete3);
 		// AJOUT LISTE + IMPRESSION
 		while (data3.next()) {
-			AUTEUR auteur = new AUTEUR (data3.getString(1),data3.getString(2),data3.getString(3),data3.getString(4),data3.getString(5));
+			AUTEUR auteur = new AUTEUR (data3.getInt(1),data3.getString(2),data3.getString(3),data3.getString(4),data3.getString(5));
 			listeauteur.add(auteur);
 		}
 		// BOUCLE LISTE AUTEUR
@@ -81,14 +81,14 @@ public class main {
 		
 		LIVRE testlivre = findlivre("1");
 		ADHERENT testadherent = findadherent("2");
-		AUTEUR testauteur = findauteur("1");
+		AUTEUR testauteur = findauteur(1);
 		
 		// AJOUT DE AUTEUR AU LIVRE
 		String requete4 = "SELECT auteur.num, livre.ISBN FROM auteur,livre WHERE livre.auteur=auteur.num";
 		cmd = connection.createStatement();
 		data4 = cmd.executeQuery(requete4);
 		while (data4.next()) {
-			String numauteur = data4.getString(1); // numero auteur attribué dans la variable numauteur
+			int numauteur = data4.getInt(1); // numero auteur attribué dans la variable numauteur
 			String ISBN = data4.getString(2); 
 			LIVRE livre = findlivre(ISBN);
 			AUTEUR lauteur = findauteur(numauteur);
@@ -136,10 +136,11 @@ public class main {
 		return null;
 	}
 	
-	public static AUTEUR findauteur (String num) {
+	/*public static AUTEUR findauteur (int num) {
 		AUTEUR lauteur = null;
 		for (int i=0;i<listeauteur.size();i++) {
-			if (listeauteur.get(i).getNum().equals(num)) {
+			String a = Integer. toString(num);
+			if (listeauteur.get(i).getNum().equals(a)) {
 				//System.out.println("auteur trouvé");
 				return lauteur;
 			}
@@ -148,6 +149,6 @@ public class main {
 			}
 		}
 		return null;
-	}
+	}*/
 }
 

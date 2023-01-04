@@ -2,6 +2,7 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.SystemColor;
 import java.awt.Font;
@@ -23,7 +24,6 @@ public class ajoutauteur {
 	private JTextField nom;
 	private JTextField prenom;
 	private JTextField dateN;
-	private JTextField num;
 
 	/**
 	 * Launch the application.
@@ -63,7 +63,7 @@ public class ajoutauteur {
 		txtrPageDajoutAuteur.setText("Page d'ajout auteur");
 		txtrPageDajoutAuteur.setFont(new Font("Arial", Font.PLAIN, 21));
 		txtrPageDajoutAuteur.setBackground(SystemColor.menu);
-		txtrPageDajoutAuteur.setBounds(120, 22, 208, 37);
+		txtrPageDajoutAuteur.setBounds(128, 0, 208, 26);
 		frame.getContentPane().add(txtrPageDajoutAuteur);
 
 		JTextArea txtrNom = new JTextArea();
@@ -90,14 +90,6 @@ public class ajoutauteur {
 		txtrDateDeNaissance.setBounds(10, 173, 121, 22);
 		frame.getContentPane().add(txtrDateDeNaissance);
 
-		JTextArea txtrEmail_1 = new JTextArea();
-		txtrEmail_1.setEditable(false);
-		txtrEmail_1.setText("Numéro auteur : ");
-		txtrEmail_1.setFont(new Font("Arial", Font.PLAIN, 13));
-		txtrEmail_1.setBackground(SystemColor.menu);
-		txtrEmail_1.setBounds(10, 71, 108, 22);
-		frame.getContentPane().add(txtrEmail_1);
-
 		nom = new JTextField();
 		nom.setFont(new Font("Arial", Font.PLAIN, 13));
 		nom.setColumns(10);
@@ -115,12 +107,6 @@ public class ajoutauteur {
 		dateN.setColumns(10);
 		dateN.setBounds(143, 178, 238, 20);
 		frame.getContentPane().add(dateN);
-
-		num = new JTextField();
-		num.setFont(new Font("Arial", Font.PLAIN, 13));
-		num.setColumns(10);
-		num.setBounds(143, 71, 238, 20);
-		frame.getContentPane().add(num);
 
 		JButton btnNewButton = new JButton("Valider");
 
@@ -149,20 +135,25 @@ public class ajoutauteur {
 		TextArea description = new TextArea();
 		description.setBounds(143, 224, 238, 130);
 		frame.getContentPane().add(description);
-
+		
+		JLabel enter = new JLabel("");
+		enter.setBounds(42, 25, 368, 31);
+		frame.getContentPane().add(enter);
+		
 
 		btnNewButton.addActionListener(new ActionListener() {
 
 
 			public void actionPerformed(ActionEvent e) {
-				if (num.getText()!=null && nom.getText()!=null && prenom.getText()!=null && dateN.getText()!=null && description.getText()!=null) {
+				if (nom.getText()!=null && prenom.getText()!=null && dateN.getText()!=null && description.getText()!=null) {
 					try {
-						mainMVC.getM().creationAuteur(num.getText(),nom.getText(),prenom.getText(),dateN.getText(),description.getText());
+						mainMVC.getM().creationAuteur(nom.getText(),prenom.getText(),dateN.getText(),description.getText());
+						enter.setText("L'inscription de l'auteur "+nom.getText()+" a été effectuée");
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						// ERREUR
 						e1.printStackTrace();
+						enter.setText("Une erreur est survenue lors de la saisie");
 					}
-					num.setText(null);
 					nom.setText(null);
 					prenom.setText(null);
 					dateN.setText(null);

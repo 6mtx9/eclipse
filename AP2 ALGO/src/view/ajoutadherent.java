@@ -1,29 +1,23 @@
 package view;
 import java.awt.EventQueue;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+
 
 import controller.mainMVC;
-import model.model;
 
 import java.awt.Color;
 import javax.swing.JTextArea;
-import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import model.ADHERENT;
+// import model.ADHERENT;
 
 public class ajoutadherent {
 
@@ -32,7 +26,6 @@ public class ajoutadherent {
 	private JTextField prenom;
 	private JTextField email;
 	private JTextField num;
-	private JLabel label;
 
 	/**
 	 * Launch the application.
@@ -115,7 +108,8 @@ public class ajoutadherent {
 		frame.getContentPane().add(txtrEmail);
 		
 		JTextArea txtrPageDajoutAdhrent = new JTextArea();
-		txtrPageDajoutAdhrent.setBounds(118, 11, 238, 37);
+		txtrPageDajoutAdhrent.setEditable(false);
+		txtrPageDajoutAdhrent.setBounds(119, 0, 238, 37);
 		txtrPageDajoutAdhrent.setBackground(new Color(240, 240, 240));
 		txtrPageDajoutAdhrent.setText("Page d'ajout adhérent");
 		txtrPageDajoutAdhrent.setFont(new Font("Arial", Font.PLAIN, 21));
@@ -128,6 +122,10 @@ public class ajoutadherent {
 		txtrEmail_1.setFont(new Font("Arial", Font.PLAIN, 13));
 		txtrEmail_1.setBackground(new Color(243, 243, 243));
 		frame.getContentPane().add(txtrEmail_1);
+		
+		JLabel enter = new JLabel("");
+		enter.setBounds(20, 26, 416, 30);
+		frame.getContentPane().add(enter);
 		
 		num = new JTextField();
 		num.setBounds(167, 60, 238, 20);
@@ -144,6 +142,8 @@ public class ajoutadherent {
 		btnPrcedent.setBounds(20, 213, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
 		
+		
+		
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -151,9 +151,12 @@ public class ajoutadherent {
 					
 					try {
 						mainMVC.getM().creationAdherent(num.getText(),nom.getText(),prenom.getText(),email.getText());
+						enter.setText("L'inscription de "+nom.getText()+" a été effectuée");
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
+						// ERREUR
 						e1.printStackTrace();
+						enter.setText("Le numero d'adhérent "+num.getText()+" est déjà utilisé");
+						
 					}
 					
 					nom.setText(null);
@@ -165,8 +168,10 @@ public class ajoutadherent {
 				
 			}
 		});
+		
 		btnNewButton.setBounds(171, 213, 108, 37);
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 17));
 		frame.getContentPane().add(btnNewButton);
+		
 	}
 }

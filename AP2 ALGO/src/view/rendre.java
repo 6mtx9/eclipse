@@ -62,6 +62,7 @@ public class rendre {
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea code = new JTextArea();
+		code.setEditable(false);
 		code.setText("Code Barre :");
 		code.setFont(new Font("Arial", Font.PLAIN, 17));
 		code.setBackground(SystemColor.menu);
@@ -69,6 +70,7 @@ public class rendre {
 		frame.getContentPane().add(code);
 		
 		JTextArea txtrPageDe = new JTextArea();
+		txtrPageDe.setEditable(false);
 		txtrPageDe.setText("Page de restitution");
 		txtrPageDe.setFont(new Font("Arial", Font.PLAIN, 21));
 		txtrPageDe.setBackground(SystemColor.menu);

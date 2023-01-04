@@ -216,6 +216,7 @@ public class vosinfo {
 				else {
 					ADHERENT ad;
 					if (mainMVC.getM().findadherent(num.getText()) != null){
+						verif.setText(null);
 						ad = mainMVC.getM().findadherent(num.getText());
 						nom.setText(ad.getNom());
 						prenom.setText(ad.getPrenom());
@@ -240,7 +241,9 @@ public class vosinfo {
 				nom.setText(null);
 				prenom.setText(null);
 				email.setText(null);
+				num.setText(null);
 				list.removeAll();
+				verif.setText(null);
 			}
 		});
 		btnSupprimerVosDonnes.setBounds(12, 100, 201, 25);

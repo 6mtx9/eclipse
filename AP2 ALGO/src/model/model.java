@@ -6,8 +6,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controller.mainMVC;
+import com.mysql.jdbc.PreparedStatement;
 
+import controller.mainMVC;
+import view.bibliothecaire;
+import view.listelivre;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 
 
@@ -16,7 +22,33 @@ public class model {
 	private ArrayList<LIVRE> ListLivre;
 	private ArrayList<AUTEUR> ListAuteur;
 	private ArrayList<ADHERENT> ListAdherent;
+	
+	public model() {
+		ListLivre=new ArrayList<LIVRE> ();
+		ListAuteur=new ArrayList<AUTEUR> ();
+		ListAdherent=new ArrayList<ADHERENT> ();
+		String BDD = "AP2prof";
+		String url = "jdbc:mysql://localhost:3306/" + BDD;
+		String user = "root";
+		String passwd = "";
 
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Connection conn;
+		try {
+			conn = DriverManager.getConnection(url, user, passwd);
+			this.con = conn;
+			System.out.println("Connection OK");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public ArrayList<LIVRE> getListLivre() {
 		return ListLivre;
 	}
@@ -49,7 +81,7 @@ public class model {
 		resultats = stmt.executeQuery(requete);
 
 		while (resultats.next()) {
-			AUTEUR a=new AUTEUR(resultats.getString(1), resultats.getString(2), resultats.getString(3), resultats.getString(4),resultats.getString(5));
+			AUTEUR a=new AUTEUR(resultats.getInt(1), resultats.getString(2), resultats.getString(3), resultats.getString(4),resultats.getString(5));
 			ListAuteur.add(a);
 		}
 
@@ -180,10 +212,10 @@ public class model {
 	//***************************************************
 	//Ajout d'un nouveau auteur
 	//***************************************************
-	public void creationAuteur(String num, String nom, String prenom, String date_naissance, String description) throws SQLException {
+	public void creationAuteur(String nom, String prenom, String date_naissance, String description) throws SQLException {
 
 		Statement command = con.createStatement();
-		command.execute("INSERT INTO `auteur` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+num+"',' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
+		command.execute("INSERT INTO `auteur` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ( null,' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
 	}
 
 	//***************************************************
@@ -205,6 +237,8 @@ public class model {
 		mainMVC.getM().ListLivre.remove(l);
 	}
 	
+	
+	
 	//***************************************************
 	//Emprunt livre
 	//***************************************************
@@ -216,9 +250,46 @@ public class model {
 		ADHERENT a = mainMVC.getM().findadherent(emprunteur);
 		l.setEmprunteur(a);
 		a.ajouterlivre(l);
-		
 	}
 	
+	//***************************************************
+	//Hashage SHA256
+	//***************************************************
+	public static String hashageSHA256(String entree) throws NoSuchAlgorithmException {
+		MessageDigest md = MessageDigest.getInstance("SHA-256");
+        md.update(entree.getBytes());
+
+        byte[] digest = md.digest();
+        StringBuffer sb = new StringBuffer();
+        for (byte b : digest){
+            sb.append(String.format("%02x", b & 0xff));
+        }
+        String sortie = sb.toString();
+		return sortie;
+	}
+	
+	//***************************************************
+	//Connexion bibliothecaire
+	//***************************************************
+	public void connexionbiblio(String login,String motdepasse) throws SQLException, NoSuchAlgorithmException {
+		if (login!=null || motdepasse!=null) {
+			java.sql.PreparedStatement precommande = con.prepareStatement("SELECT * FROM `bibliothecaire` WHERE login=? AND motdepasse=?");
+			precommande.setString(1, login);
+			String motdepassehash = hashageSHA256(motdepasse);
+			precommande.setString(2, motdepassehash);
+			ResultSet resultat= precommande.executeQuery();
+			if (resultat!=null) {
+				bibliothecaire vca = new bibliothecaire();
+				resultat = null;
+			}
+			else {
+				System.out.println("Identifiant ou mot de passe incorrect");
+			}
+		}
+		else {
+			System.out.println("Aucun identifiant ou mot de passe n'a été saisi");
+		}
+	}
 	
 	public void setListLivre(ArrayList<LIVRE> listLivre) {
 		ListLivre = listLivre;
@@ -236,34 +307,24 @@ public class model {
 		this.con = con;
 	}
 
-	public model() {
-		ListLivre=new ArrayList<LIVRE> ();
-		ListAuteur=new ArrayList<AUTEUR> ();
-		ListAdherent=new ArrayList<ADHERENT> ();
-		String BDD = "AP2prof";
-		String url = "jdbc:mysql://localhost:3306/" + BDD;
-		String user = "root";
-		String passwd = "";
-
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	//***************************************************
+	//Verification disponibilité livre
+	//***************************************************
+		public String verif(String ISBN) throws SQLException {
+			ResultSet resultats;
+			String requete = "SELECT adherent FROM livre WHERE ISBN="+ISBN;
+			Statement stmt = con.createStatement();
+			resultats = stmt.executeQuery(requete);
+			if (resultats.next()==true) {
+				String verif =null;
+				return verif;
+			}
+			else {
+				String verif ="vrai";
+				return verif;
+			}
 		}
-		Connection conn;
-		try {
-			conn = DriverManager.getConnection(url, user, passwd);
-			this.con = conn;
-			System.out.println("Connection OK");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-
-
+		
 }
 
 
