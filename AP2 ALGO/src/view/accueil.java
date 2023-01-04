@@ -100,7 +100,7 @@ public class accueil {
 		rendre.setBounds(235, 176, 183, 49);
 		frame.getContentPane().add(rendre);
 		
-		JButton btnBibliothcaire = new JButton("Bibliothècaire");
+		JButton btnBibliothcaire = new JButton("Bibliothécaire");
 		btnBibliothcaire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

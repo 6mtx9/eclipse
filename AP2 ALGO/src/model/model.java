@@ -224,7 +224,7 @@ public class model {
 	public void creationlivre(String ISBN, String titre, Float prix, AUTEUR auteur) throws SQLException {
 
 		Statement command = con.createStatement();
-		// command.execute("INSERT INTO `livre` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+num+"',' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
+		command.execute("INSERT INTO `livre` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+ISBN+"',' "+titre+"', '"+prix+"', '"+auteur+"')");
 	}
 	//***************************************************
 	//Retour livre
@@ -324,6 +324,8 @@ public class model {
 				return verif;
 			}
 		}
+	
+		
 		
 }
 

@@ -5,7 +5,10 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import controller.mainMVC;
+
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import java.awt.Color;
@@ -23,7 +26,7 @@ public class ajoutlivre {
 	private JTextArea txtrAuteur;
 	private JTextArea r;
 	private JButton btnPrcedent;
-	private JTextField textField;
+	private JTextField prix;
 	private JTextArea txtrPrix;
 
 	/**
@@ -59,24 +62,8 @@ public class ajoutlivre {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton entrer = new JButton("Entrer");
-		entrer.setFont(new Font("Arial", Font.PLAIN, 17));
-		entrer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (ISBN.getText()!=null) {
-					/*int nombre = Integer.parseInt(ISBN.getText());
-					livre = new LIVRE (ISBN.getText(),titre.getText(),auteur.getText()); JAVA CREATION USELESS*/
-				}
-				else {
-					
-				}
-			}
-		});
-		entrer.setBounds(169, 223, 107, 38);
-		frame.getContentPane().add(entrer);
-		
 		titre = new JTextField();
-		titre.setBounds(146, 91, 237, 20);
+		titre.setBounds(146, 92, 237, 20);
 		frame.getContentPane().add(titre);
 		titre.setColumns(10);
 		
@@ -126,14 +113,10 @@ public class ajoutlivre {
 		btnPrcedent.setBounds(29, 224, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
 		
-		JComboBox auteur = new JComboBox();
-		auteur.setBounds(146, 155, 237, 24);
-		frame.getContentPane().add(auteur);
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(146, 123, 237, 20);
-		frame.getContentPane().add(textField);
+		prix = new JTextField();
+		prix.setColumns(10);
+		prix.setBounds(146, 123, 237, 20);
+		frame.getContentPane().add(prix);
 		
 		txtrPrix = new JTextArea();
 		txtrPrix.setEditable(false);
@@ -142,9 +125,39 @@ public class ajoutlivre {
 		txtrPrix.setBackground(new Color(240, 240, 240));
 		txtrPrix.setBounds(47, 127, 62, 23);
 		frame.getContentPane().add(txtrPrix);
-		//for (int i=0;i<size;i++) {
-		//	auteur.addItem(leslivres.get(i));
-		//}
 		
+		
+		Object[] listeauteur = new Object[] {};
+		
+		JComboBox <String>auteur = new JComboBox(listeauteur);
+		auteur.setBounds(146, 155, 237, 24);
+		frame.getContentPane().add(auteur);
+		// System.out.println(mainMVC.getM().getListAuteur().size());
+		for (int i=0;i<mainMVC.getM().getListAuteur().size();i++) {
+			listeauteur = new Object[] {mainMVC.getM().getListAuteur().get(i).getNom()};
+			
+		}
+		
+		JButton entrer = new JButton("Entrer");
+		entrer.setFont(new Font("Arial", Font.PLAIN, 17));
+		entrer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (ISBN.getText()!=null && ISBN.getText()!=null && prix.getText()!=null) {
+					String selectionauteur = (String) auteur.getSelectedItem();
+					float prixfloat = Float.parseFloat(prix.getText());
+					try {
+						mainMVC.getM().creationlivre(ISBN.getText(),titre.getText(),prixfloat,mainMVC.getM().findauteur(selectionauteur));
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				else {
+					
+				}
+			}
+		});
+		entrer.setBounds(169, 223, 107, 38);
+		frame.getContentPane().add(entrer);
 	}
 }

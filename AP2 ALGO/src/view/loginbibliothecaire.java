@@ -66,7 +66,7 @@ public class loginbibliothecaire {
 		btnPrcedent.setBounds(65, 213, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
 		
-		JLabel lblConnexionBibliothecaire = new JLabel("Connexion Bibliothecaire");
+		JLabel lblConnexionBibliothecaire = new JLabel("Connexion Bibliothécaire");
 		lblConnexionBibliothecaire.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblConnexionBibliothecaire.setBounds(121, 27, 256, 28);
 		frame.getContentPane().add(lblConnexionBibliothecaire);
