@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class ENTREPRISE {
 	private String nom;
 	private String adresse;
-	private EMPLOYE listeemploye;
+	private ArrayList <EMPLOYE> listeemploye;
 	public int i;
 	
 	public String getNom() {
@@ -16,14 +18,14 @@ public class ENTREPRISE {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public EMPLOYE getListeemploye() {
+	public ArrayList<EMPLOYE> getListeemploye() {
 		return listeemploye;
 	}
-	public void setListeemploye(EMPLOYE listeemploye) {
+	public void setListeemploye(ArrayList<EMPLOYE> listeemploye) {
 		this.listeemploye = listeemploye;
 	}
 	
-	public ENTREPRISE(String nom, String adresse, EMPLOYE listeemploye) {
+	public ENTREPRISE(String nom, String adresse, ArrayList<EMPLOYE> listeemploye) {
 		super();
 		this.nom = nom;
 		this.adresse = adresse;

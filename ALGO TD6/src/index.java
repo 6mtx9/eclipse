@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class index {
 
@@ -33,7 +34,10 @@ public class index {
 		// PIERRE ET MARIE TRAVAILLE CHEZ ABC
 		employe1.setEmployeur(ABC);
 		employe2.setEmployeur(ABC);
-		ABC.getListeemploye().add(employe1);
+		// AJOUT LISTE DES EMPLOYES DANS L ENTREPRISE
+		ABC.setListeemploye(listeemploye);
+		// TEST IMPRESSION LISTE EMPLOYES
+		System.out.println(ABC.getListeemploye());
 		
 		// TEST EMPLOYEUR DE EMPLOYE 1 ET 2
 		//System.out.println("employeur employe 1"+employe1.getEmployeur());

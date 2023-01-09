@@ -133,7 +133,7 @@ public class CREATION_COMPTE {
 				
 				// Si boutton courant appuyé Sinon ...
 				if (button_courant.isSelected()) {
-					tauxtor.setEditable(false);
+					taux.setEditable(false);
 					int prochainid = lstc.size()+1;
 					COURANT comptecourant1;
 					comptecourant1 = new COURANT(prochainid,Float.parseFloat(solde.getText()),"€",clientselectionne,500);
