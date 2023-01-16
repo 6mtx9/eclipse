@@ -162,6 +162,8 @@ public class model {
 		System.out.println("chargement BDD OK");
 
 	}
+	
+	
 	public AUTEUR findauteur(String num)
 	{
 		for(int i=0;i<ListAuteur.size();i++)
@@ -199,6 +201,15 @@ public class model {
 
 		return null;
 	}
+	
+	public AUTEUR findlAuteur(int num) {
+		for (int i=0;i<ListAuteur.size();i++) {	
+			if (ListAuteur.get(i).getNum()==num) {
+				return ListAuteur.get(i);
+			}
+		}
+		return null;
+	}
 
 	//***************************************************
 	//Ajout d'un nouveau adhérent
@@ -215,7 +226,7 @@ public class model {
 	public void creationAuteur(String nom, String prenom, String date_naissance, String description) throws SQLException {
 
 		Statement command = con.createStatement();
-		command.execute("INSERT INTO `auteur` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ( null,' "+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
+		command.execute("INSERT INTO `auteur` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ( null,'"+nom+"', '"+prenom+"', '"+date_naissance+"', '"+description+"')");
 	}
 
 	//***************************************************
@@ -224,7 +235,7 @@ public class model {
 	public void creationlivre(String ISBN, String titre, Float prix, AUTEUR auteur) throws SQLException {
 
 		Statement command = con.createStatement();
-		command.execute("INSERT INTO `livre` (`num`, `nom`, `prenom`, `date_naissance`,`description`) VALUES ('"+ISBN+"',' "+titre+"', '"+prix+"', '"+auteur+"')");
+		command.execute("INSERT INTO `livre` (`ISBN`, `titre`, `prix`, `adherent`,`auteur`) VALUES ("+ISBN+",' "+titre+"',"+prix+",null,'"+auteur.getNum()+"')");
 	}
 	//***************************************************
 	//Retour livre

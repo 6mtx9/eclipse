@@ -132,7 +132,7 @@ public class vosinfo {
 			}
 		});
 		btnPrcedent_1.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent_1.setBounds(34, 217, 117, 37);
+		btnPrcedent_1.setBounds(34, 232, 117, 37);
 		frame.getContentPane().add(btnPrcedent_1);
 
 		JTextArea txtrNom = new JTextArea();
@@ -140,7 +140,7 @@ public class vosinfo {
 		txtrNom.setText("Nom :");
 		txtrNom.setFont(new Font("Dialog", Font.PLAIN, 13));
 		txtrNom.setBackground(new Color(240, 240, 240));
-		txtrNom.setBounds(34, 115, 108, 22);
+		txtrNom.setBounds(34, 133, 108, 22);
 		frame.getContentPane().add(txtrNom);
 
 		JTextArea txtrPrnom = new JTextArea();
@@ -148,7 +148,7 @@ public class vosinfo {
 		txtrPrnom.setText("Prénom :");
 		txtrPrnom.setFont(new Font("Dialog", Font.PLAIN, 13));
 		txtrPrnom.setBackground(new Color(240, 240, 240));
-		txtrPrnom.setBounds(34, 149, 108, 22);
+		txtrPrnom.setBounds(34, 166, 108, 22);
 		frame.getContentPane().add(txtrPrnom);
 
 		JTextArea txtrEmail = new JTextArea();
@@ -156,7 +156,7 @@ public class vosinfo {
 		txtrEmail.setText("Email :");
 		txtrEmail.setFont(new Font("Dialog", Font.PLAIN, 13));
 		txtrEmail.setBackground(new Color(240, 240, 240));
-		txtrEmail.setBounds(34, 183, 108, 22);
+		txtrEmail.setBounds(34, 199, 108, 22);
 		frame.getContentPane().add(txtrEmail);
 
 		JTextArea txtrNumroAdhrent = new JTextArea();
@@ -183,17 +183,17 @@ public class vosinfo {
 
 			}
 		});
-		nom.setBounds(182, 116, 209, 21);
+		nom.setBounds(182, 134, 209, 21);
 		frame.getContentPane().add(nom);
 
 		JTextArea prenom = new JTextArea();
 		prenom.setEditable(false);
-		prenom.setBounds(182, 150, 209, 21);
+		prenom.setBounds(182, 166, 209, 21);
 		frame.getContentPane().add(prenom);
 
 		JTextArea email = new JTextArea();
 		email.setEditable(false);
-		email.setBounds(182, 184, 209, 21);
+		email.setBounds(182, 199, 209, 21);
 		frame.getContentPane().add(email);
 		
 		TextField num = new TextField();
@@ -233,7 +233,7 @@ public class vosinfo {
 				}
 			}
 		});
-		valider.setBounds(236, 78, 117, 25);
+		valider.setBounds(271, 98, 117, 25);
 		frame.getContentPane().add(valider);
 		
 		JButton btnSupprimerVosDonnes = new JButton("Supprimer vos données");
@@ -247,11 +247,11 @@ public class vosinfo {
 				verif.setText(null);
 			}
 		});
-		btnSupprimerVosDonnes.setBounds(23, 78, 201, 25);
+		btnSupprimerVosDonnes.setBounds(34, 97, 201, 25);
 		frame.getContentPane().add(btnSupprimerVosDonnes);
 		
 		JLabel lblListeDeVos = new JLabel("Liste de vos livres empruntés");
-		lblListeDeVos.setBounds(102, 266, 267, 30);
+		lblListeDeVos.setBounds(121, 268, 267, 30);
 		frame.getContentPane().add(lblListeDeVos);
 		
 		

@@ -15,7 +15,9 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 
+import model.AUTEUR;
 import model.LIVRE;
+import javax.swing.JLabel;
 
 public class ajoutlivre {
 
@@ -28,11 +30,12 @@ public class ajoutlivre {
 	private JButton btnPrcedent;
 	private JTextField prix;
 	private JTextArea txtrPrix;
-
+	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -57,8 +60,9 @@ public class ajoutlivre {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		int auteur[]=new int[999];
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 355);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -110,7 +114,7 @@ public class ajoutlivre {
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(29, 224, 117, 37);
+		btnPrcedent.setBounds(25, 261, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
 		
 		prix = new JTextField();
@@ -126,27 +130,32 @@ public class ajoutlivre {
 		txtrPrix.setBounds(47, 127, 62, 23);
 		frame.getContentPane().add(txtrPrix);
 		
+		JLabel sortie = new JLabel("");
+		sortie.setBounds(47, 204, 336, 31);
+		frame.getContentPane().add(sortie);
 		
-		Object[] listeauteur = new Object[] {};
-		
-		JComboBox <String>auteur = new JComboBox(listeauteur);
-		auteur.setBounds(146, 155, 237, 24);
-		frame.getContentPane().add(auteur);
+		JComboBox <String>listeauteur = new JComboBox<String>();
+		listeauteur.setBounds(146, 155, 237, 24);
+		frame.getContentPane().add(listeauteur);
 		// System.out.println(mainMVC.getM().getListAuteur().size());
 		for (int i=0;i<mainMVC.getM().getListAuteur().size();i++) {
-			listeauteur = new Object[] {mainMVC.getM().getListAuteur().get(i).getNom()};
-			
+			listeauteur.addItem(mainMVC.getM().getListAuteur().get(i).getNom()+" "+mainMVC.getM().getListAuteur().get(i).getPrenom());
+			auteur[i]=mainMVC.getM().getListAuteur().get(i).getNum();
 		}
+		
 		
 		JButton entrer = new JButton("Entrer");
 		entrer.setFont(new Font("Arial", Font.PLAIN, 17));
 		entrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				int numAuteur=auteur[listeauteur.getSelectedIndex()]; /// NUMERO DE LISTE DE LA FILE DEROULANTE ENTIER
+				AUTEUR lauteur=mainMVC.getM().findlAuteur(numAuteur); /// FINDLAUTEUR POUR EN TYPE AUTEUR
+				System.out.println(lauteur.getDescription());
 				if (ISBN.getText()!=null && ISBN.getText()!=null && prix.getText()!=null) {
-					String selectionauteur = (String) auteur.getSelectedItem();
 					float prixfloat = Float.parseFloat(prix.getText());
 					try {
-						mainMVC.getM().creationlivre(ISBN.getText(),titre.getText(),prixfloat,mainMVC.getM().findauteur(selectionauteur));
+						mainMVC.getM().creationlivre(ISBN.getText(),titre.getText(),prixfloat,lauteur);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -157,7 +166,9 @@ public class ajoutlivre {
 				}
 			}
 		});
-		entrer.setBounds(169, 223, 107, 38);
+		entrer.setBounds(170, 261, 107, 38);
 		frame.getContentPane().add(entrer);
+		
+		
 	}
 }

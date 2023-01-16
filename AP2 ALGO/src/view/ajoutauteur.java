@@ -145,6 +145,7 @@ public class ajoutauteur {
 
 
 			public void actionPerformed(ActionEvent e) {
+			
 				if (nom.getText()!=null && prenom.getText()!=null && dateN.getText()!=null && description.getText()!=null) {
 					try {
 						mainMVC.getM().creationAuteur(nom.getText(),prenom.getText(),dateN.getText(),description.getText());
