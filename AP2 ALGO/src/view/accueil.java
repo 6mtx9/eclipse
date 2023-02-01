@@ -5,7 +5,15 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Rectangle;
+
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class accueil {
 
@@ -40,11 +48,13 @@ public class accueil {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 710, 470);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton info = new JButton("Vos informations");
+		JButton info = new JButton("");
+		info.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\vosinfos.png"));
+		info.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -55,10 +65,14 @@ public class accueil {
 				}
 			}
 		});
-		info.setBounds(27, 88, 183, 49);
+		info.setBounds(389, 315, 212, 49);
 		frame.getContentPane().add(info);
+		info.setBorderPainted(false);
+		info.setOpaque(false);
 		
-		JButton livre = new JButton("Catalogue des livres");
+		JButton livre = new JButton("");
+		livre.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\catalogue.png"));
+		livre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		livre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -69,10 +83,14 @@ public class accueil {
 				}
 			}
 		});
-		livre.setBounds(27, 176, 183, 49);
+		livre.setBounds(91, 315, 248, 49);
 		frame.getContentPane().add(livre);
+		livre.setBorderPainted(false);
+		livre.setOpaque(false);
 		
-		JButton emprunter = new JButton("Emprunter");
+		JButton emprunter = new JButton("");
+		emprunter.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\emprunter.png"));
+		emprunter.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		emprunter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -83,10 +101,15 @@ public class accueil {
 				}
 			}
 		});
-		emprunter.setBounds(235, 88, 183, 49);
+		emprunter.setBounds(141, 190, 150, 49);
 		frame.getContentPane().add(emprunter);
+		emprunter.setOpaque(false);
+		emprunter.setBorderPainted(false);;
 		
-		JButton rendre = new JButton("Retour");
+		
+		JButton rendre = new JButton("");
+		rendre.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\retour.png"));
+		rendre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		rendre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -97,10 +120,14 @@ public class accueil {
 				}
 			}
 		});
-		rendre.setBounds(235, 176, 183, 49);
+		rendre.setBounds(446, 190, 113, 49);
 		frame.getContentPane().add(rendre);
+		rendre.setBorderPainted(false);
+		rendre.setOpaque(false);
 		
-		JButton btnBibliothcaire = new JButton("Bibliothécaire");
+		JButton btnBibliothcaire = new JButton("");
+		btnBibliothcaire.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\bibliothecaire.png"));
+		btnBibliothcaire.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBibliothcaire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -111,7 +138,45 @@ public class accueil {
 				}
 			}
 		});
-		btnBibliothcaire.setBounds(235, 12, 183, 40);
+		btnBibliothcaire.setBounds(501, 11, 183, 49);
 		frame.getContentPane().add(btnBibliothcaire);
+		
+		
+		JLabel defile = new JLabel("Bienvenue à la bibliothèque");
+		defile.setForeground(Color.WHITE);
+		defile.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		defile.setBounds(0, 84, 224, 28);
+		frame.getContentPane().add(defile);
+		
+		//System.out.println(frame.getBounds().getMaxX());
+		
+		Rectangle longueur = defile.getBounds();
+			defile.setBounds(0, 84, 224, 28);
+			Timer timer = new Timer();
+			TimerTask task = new TimerTask() {
+				@Override
+				public void run() {
+					if(defile.getBounds().x==0||defile.getBounds().x!=frame.getBounds().getMaxX()) {
+						int x = defile.getBounds().x;
+						x+=10;
+						defile.setBounds(x, 84, 224, 28);
+						// System.out.println(x);
+					}
+					else {
+						defile.setBounds(-200, 84, 224, 28);
+					}
+				};
+				
+			};
+			timer.schedule(task, 100,100);
+		
+		
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		background.setBounds(0, -33, 692, 463);
+		frame.getContentPane().add(background);
+		
+		
+		
 	}
 }

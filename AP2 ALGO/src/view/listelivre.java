@@ -2,6 +2,7 @@ package view;
 import java.awt.EventQueue;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -56,7 +57,7 @@ public class listelivre {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 708, 469);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -67,19 +68,24 @@ public class listelivre {
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(23, 216, 117, 37);
+		btnPrcedent.setBounds(63, 351, 117, 37);
 		frame.getContentPane().add(btnPrcedent);
 		
 		JLabel lblListeDesLivres = new JLabel("Liste des livres");
-		lblListeDesLivres.setBounds(162, 12, 117, 36);
+		lblListeDesLivres.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblListeDesLivres.setBounds(255, 11, 175, 36);
 		frame.getContentPane().add(lblListeDesLivres);
 		
 		List tableauliste = new List();
-		tableauliste.setBounds(63, 54, 318, 148);
+		tableauliste.setBounds(63, 54, 576, 248);
 		frame.getContentPane().add(tableauliste);
 		
 		for (int i=0;i!=mainMVC.getM().getListLivre().size();i++) {
 			tableauliste.add("ISBN : "+mainMVC.getM().getListLivre().get(i).getISBN()+" Titre : "+mainMVC.getM().getListLivre().get(i).getTitre()+" Prix : "+mainMVC.getM().getListLivre().get(i).getPrix());
 		}
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		background.setBounds(0, -33, 692, 463);
+		frame.getContentPane().add(background);
 	}
 }

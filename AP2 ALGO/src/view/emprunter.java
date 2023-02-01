@@ -2,6 +2,7 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import controller.mainMVC;
@@ -10,6 +11,8 @@ import java.awt.BorderLayout;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -56,50 +59,51 @@ public class emprunter {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 708, 469);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		ISBN = new JTextField();
 		ISBN.setBackground(new Color(255, 255, 255));
-		ISBN.setBounds(159, 96, 235, 22);
+		ISBN.setBounds(240, 236, 296, 60);
 		frame.getContentPane().add(ISBN);
 		ISBN.setColumns(10);
 
 		JTextArea code = new JTextArea();
 		code.setEditable(false);
 		code.setBackground(new Color(240, 240, 240));
-		code.setFont(new Font("Arial", Font.PLAIN, 17));
+		code.setFont(new Font("Arial", Font.PLAIN, 25));
 		code.setText("Code Barre :");
-		code.setBounds(25, 93, 127, 22);
+		code.setBounds(25, 145, 165, 44);
 		frame.getContentPane().add(code);
 
 		JTextArea txtrPageDemprunt = new JTextArea();
 		txtrPageDemprunt.setEditable(false);
-		txtrPageDemprunt.setFont(new Font("Arial", Font.PLAIN, 21));
+		txtrPageDemprunt.setFont(new Font("Arial", Font.PLAIN, 26));
 		txtrPageDemprunt.setText("Page d'emprunt");
 		txtrPageDemprunt.setBackground(new Color(240, 240, 240));
-		txtrPageDemprunt.setBounds(139, 11, 235, 29);
+		txtrPageDemprunt.setBounds(259, 11, 195, 43);
 		frame.getContentPane().add(txtrPageDemprunt);
 
 		emprunteur = new JTextField();
 		emprunteur.setColumns(10);
 		emprunteur.setBackground(Color.WHITE);
-		emprunteur.setBounds(159, 148, 235, 22);
+		emprunteur.setBounds(240, 129, 296, 60);
 		frame.getContentPane().add(emprunteur);
 
 		JTextArea t = new JTextArea();
 		t.setEditable(false);
 		t.setText("Emprunteur : ");
-		t.setFont(new Font("Arial", Font.PLAIN, 17));
+		t.setFont(new Font("Arial", Font.PLAIN, 25));
 		t.setBackground(new Color(243, 243, 243));
-		t.setBounds(25, 147, 127, 22);
+		t.setBounds(25, 245, 144, 49);
 		frame.getContentPane().add(t);
 
 		JTextArea resultat = new JTextArea();
+		resultat.setFont(new Font("Monospaced", Font.PLAIN, 17));
 		resultat.setEditable(false);
-		resultat.setBackground(new Color(218, 218, 218));
-		resultat.setBounds(79, 49, 275, 22);
+		resultat.setBackground(SystemColor.control);
+		resultat.setBounds(191, 65, 322, 41);
 		frame.getContentPane().add(resultat);
 
 		JButton btnPrcedent = new JButton("Précedent");
@@ -109,10 +113,11 @@ public class emprunter {
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(25, 208, 124, 35);
+		btnPrcedent.setBounds(25, 336, 124, 35);
 		frame.getContentPane().add(btnPrcedent);
 
 		JButton btnNewButton = new JButton("Valider");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -132,8 +137,12 @@ public class emprunter {
 				}
 			}
 		});
-		btnNewButton.setBounds(174, 209, 109, 34);
+		btnNewButton.setBounds(336, 336, 109, 34);
 		frame.getContentPane().add(btnNewButton);
-
+		
+		JLabel background = new JLabel("");
+		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		background.setBounds(0, -33, 692, 463);
+		frame.getContentPane().add(background);
 	}
 }
