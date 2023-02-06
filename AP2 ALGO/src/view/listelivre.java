@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class listelivre {
 
@@ -61,15 +62,18 @@ public class listelivre {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnPrcedent = new JButton("Précedent");
+		JButton btnPrcedent = new JButton("");
+		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(63, 351, 117, 37);
+		btnPrcedent.setBounds(64, 345, 169, 48);
 		frame.getContentPane().add(btnPrcedent);
+		btnPrcedent.setOpaque(false);
+		btnPrcedent.setBorderPainted(false);
 		
 		JLabel lblListeDesLivres = new JLabel("Liste des livres");
 		lblListeDesLivres.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -77,11 +81,19 @@ public class listelivre {
 		frame.getContentPane().add(lblListeDesLivres);
 		
 		List tableauliste = new List();
-		tableauliste.setBounds(63, 54, 576, 248);
+		tableauliste.setBackground(new Color(255, 250, 205));
+		tableauliste.setBounds(64, 55, 575, 248);
 		frame.getContentPane().add(tableauliste);
 		
 		for (int i=0;i!=mainMVC.getM().getListLivre().size();i++) {
-			tableauliste.add("ISBN : "+mainMVC.getM().getListLivre().get(i).getISBN()+" Titre : "+mainMVC.getM().getListLivre().get(i).getTitre()+" Prix : "+mainMVC.getM().getListLivre().get(i).getPrix());
+			String emprunt;
+			if(mainMVC.getM().getListLivre().get(i).getEmprunteur()!=null) {
+				emprunt = "déjà emprunté";
+			}
+			else {
+				emprunt = "libre";
+			}
+			tableauliste.add("ISBN : "+mainMVC.getM().getListLivre().get(i).getISBN()+" Titre : "+mainMVC.getM().getListLivre().get(i).getTitre()+" Prix : "+mainMVC.getM().getListLivre().get(i).getPrix()+" Disponibilité : "+emprunt);
 		}
 		JLabel background = new JLabel("");
 		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));

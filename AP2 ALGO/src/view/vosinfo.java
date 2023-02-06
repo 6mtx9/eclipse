@@ -129,7 +129,8 @@ public class vosinfo {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnPrcedent_1 = new JButton("Précedent");
+		JButton btnPrcedent_1 = new JButton("");
+		btnPrcedent_1.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
 		btnPrcedent_1.setForeground(Color.ORANGE);
 		btnPrcedent_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -137,20 +138,20 @@ public class vosinfo {
 			}
 		});
 		btnPrcedent_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnPrcedent_1.setBounds(34, 352, 134, 39);
+		btnPrcedent_1.setBounds(34, 353, 170, 48);
 		frame.getContentPane().add(btnPrcedent_1);
 		btnPrcedent_1.setOpaque(false);
 		btnPrcedent_1.setBackground(null);
-		btnPrcedent_1.setBorderPainted(true);
+		btnPrcedent_1.setBorderPainted(false);
 		
 		JTextArea txtrNom = new JTextArea();
 		txtrNom.setForeground(Color.YELLOW);
 		txtrNom.setOpaque(false);
 		txtrNom.setEditable(false);
 		txtrNom.setText("Nom :");
-		txtrNom.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtrNom.setFont(new Font("Dialog", Font.PLAIN, 24));
 		txtrNom.setBackground(new Color(240, 240, 240));
-		txtrNom.setBounds(34, 175, 108, 22);
+		txtrNom.setBounds(34, 177, 108, 39);
 		frame.getContentPane().add(txtrNom);
 
 		JTextArea txtrPrnom = new JTextArea();
@@ -158,9 +159,9 @@ public class vosinfo {
 		txtrPrnom.setEditable(false);
 		txtrPrnom.setOpaque(false);
 		txtrPrnom.setText("Prénom :");
-		txtrPrnom.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtrPrnom.setFont(new Font("Dialog", Font.PLAIN, 24));
 		txtrPrnom.setBackground(new Color(240, 240, 240));
-		txtrPrnom.setBounds(34, 234, 108, 22);
+		txtrPrnom.setBounds(34, 238, 108, 33);
 		frame.getContentPane().add(txtrPrnom);
 
 		JTextArea txtrEmail = new JTextArea();
@@ -168,9 +169,9 @@ public class vosinfo {
 		txtrEmail.setEditable(false);
 		txtrEmail.setOpaque(false);
 		txtrEmail.setText("Email :");
-		txtrEmail.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtrEmail.setFont(new Font("Dialog", Font.PLAIN, 24));
 		txtrEmail.setBackground(new Color(240, 240, 240));
-		txtrEmail.setBounds(34, 296, 108, 22);
+		txtrEmail.setBounds(34, 296, 108, 33);
 		frame.getContentPane().add(txtrEmail);
 
 		JTextArea txtrNumroAdhrent = new JTextArea();
@@ -178,9 +179,9 @@ public class vosinfo {
 		txtrNumroAdhrent.setOpaque(false);
 		txtrNumroAdhrent.setEditable(false);
 		txtrNumroAdhrent.setText("Numéro adhérent :");
-		txtrNumroAdhrent.setFont(new Font("Dialog", Font.PLAIN, 18));
+		txtrNumroAdhrent.setFont(new Font("Dialog", Font.PLAIN, 24));
 		txtrNumroAdhrent.setBackground(new Color(240, 240, 240));
-		txtrNumroAdhrent.setBounds(34, 79, 154, 22);
+		txtrNumroAdhrent.setBounds(34, 70, 218, 34);
 		frame.getContentPane().add(txtrNumroAdhrent);
 
 		JTextArea txtrVosInformations = new JTextArea();
@@ -195,40 +196,48 @@ public class vosinfo {
 
 		JTextArea nom = new JTextArea();
 		nom.setEditable(false);
+		nom.setFont(new Font("Monospaced", Font.PLAIN, 18));
 	
 		nom.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
 
 			}
 		});
-		nom.setBounds(200, 64, 209, 37);
+		nom.setBounds(182, 177, 209, 39);
 		frame.getContentPane().add(nom);
 
 		JTextArea prenom = new JTextArea();
+		prenom.setFont(new Font("Monospaced", Font.PLAIN, 18));
 		prenom.setEditable(false);
 		prenom.setBounds(182, 234, 209, 37);
 		frame.getContentPane().add(prenom);
 
 		JTextArea email = new JTextArea();
+		email.setFont(new Font("Monospaced", Font.PLAIN, 18));
 		email.setEditable(false);
 		email.setBounds(182, 296, 209, 37);
 		frame.getContentPane().add(email);
 		
 		TextField num = new TextField();
+		num.setFont(new Font("Monospaced", Font.PLAIN, 18));
 		num.setBackground(SystemColor.window);
-		num.setEditable(false);
-		num.setBounds(182, 177, 209, 39);
+		num.setBounds(274, 65, 117, 39);
 		frame.getContentPane().add(num);
 		
-		Label verif = new Label("");
-		verif.setBounds(199, 36, 267, 21);
+		JTextArea verif = new JTextArea();
+		verif.setFont(new Font("Monospaced", Font.PLAIN, 18));
+		verif.setEditable(false);
+		verif.setForeground(Color.RED);
+		verif.setBounds(179, 35, 297, 33);
 		frame.getContentPane().add(verif);
+		verif.setOpaque(false);
 		
 		List list = new List();
 		list.setBounds(415, 98, 247, 322);
 		frame.getContentPane().add(list);
 		
 		JButton valider = new JButton("Valider");
+		valider.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
 		valider.setForeground(Color.ORANGE);
 		valider.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		valider.addActionListener(new ActionListener() {
@@ -255,12 +264,13 @@ public class vosinfo {
 				}
 			}
 		});
-		valider.setBounds(274, 112, 117, 37);
+		valider.setBounds(274, 127, 117, 39);
 		frame.getContentPane().add(valider);
 		valider.setOpaque(false);
 		valider.setBorderPainted(false);
 		
-		JButton btnSupprimerVosDonnes = new JButton("Supprimer vos données");
+		JButton btnSupprimerVosDonnes = new JButton("");
+		btnSupprimerVosDonnes.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\supprimerinfos.png"));
 		btnSupprimerVosDonnes.setForeground(Color.ORANGE);
 		btnSupprimerVosDonnes.setOpaque(false);
 		btnSupprimerVosDonnes.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -274,7 +284,7 @@ public class vosinfo {
 				verif.setText(null);
 			}
 		});
-		btnSupprimerVosDonnes.setBounds(34, 112, 227, 37);
+		btnSupprimerVosDonnes.setBounds(11, 127, 253, 39);
 		frame.getContentPane().add(btnSupprimerVosDonnes);
 		btnSupprimerVosDonnes.setOpaque(false);
 		btnSupprimerVosDonnes.setBorderPainted(false);

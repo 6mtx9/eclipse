@@ -65,7 +65,7 @@ public class accueil {
 				}
 			}
 		});
-		info.setBounds(389, 315, 212, 49);
+		info.setBounds(393, 307, 210, 49);
 		frame.getContentPane().add(info);
 		info.setBorderPainted(false);
 		info.setOpaque(false);
@@ -83,7 +83,7 @@ public class accueil {
 				}
 			}
 		});
-		livre.setBounds(91, 315, 248, 49);
+		livre.setBounds(86, 307, 240, 49);
 		frame.getContentPane().add(livre);
 		livre.setBorderPainted(false);
 		livre.setOpaque(false);
@@ -101,10 +101,10 @@ public class accueil {
 				}
 			}
 		});
-		emprunter.setBounds(141, 190, 150, 49);
+		emprunter.setBounds(126, 190, 151, 49);
 		frame.getContentPane().add(emprunter);
 		emprunter.setOpaque(false);
-		emprunter.setBorderPainted(false);;
+		emprunter.setBorderPainted(false);
 		
 		
 		JButton rendre = new JButton("");
@@ -120,7 +120,7 @@ public class accueil {
 				}
 			}
 		});
-		rendre.setBounds(446, 190, 113, 49);
+		rendre.setBounds(435, 190, 112, 49);
 		frame.getContentPane().add(rendre);
 		rendre.setBorderPainted(false);
 		rendre.setOpaque(false);

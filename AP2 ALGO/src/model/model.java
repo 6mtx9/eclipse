@@ -322,18 +322,23 @@ public class model {
 	//Verification disponibilité livre
 	//***************************************************
 		public String verif(String ISBN) throws SQLException {
-			ResultSet resultats;
-			String requete = "SELECT adherent FROM livre WHERE ISBN="+ISBN;
-			Statement stmt = con.createStatement();
-			resultats = stmt.executeQuery(requete);
-			if (resultats.next()==true) {
-				String verif =null;
-				return verif;
+			
+			if(mainMVC.getM().findlivre(ISBN)!=null) {
+				if (mainMVC.getM().findlivre(ISBN).getEmprunteur()!=null) {
+					String verif ="dejaemprunte";
+					return verif;
+				}
+				else if(mainMVC.getM().findlivre(ISBN).getEmprunteur()==null) {
+					String verif ="libre";
+					return verif;
+				}
 			}
+
 			else {
-				String verif ="vrai";
+				String verif ="erreur";
 				return verif;
 			}
+			return "";
 		}
 	
 		

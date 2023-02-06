@@ -3,9 +3,11 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import controller.mainMVC;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -47,46 +49,56 @@ public class bibliothecaire {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 708, 469);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton ajoutadherent = new JButton("Ajout Adhérent");
+		JButton ajoutadherent = new JButton("");
+		ajoutadherent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\ajout_adherent.png"));
 		ajoutadherent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ajoutadherent vca = new ajoutadherent();
 			}
 		});
-		ajoutadherent.setBounds(50, 65, 146, 45);
+		ajoutadherent.setBounds(126, 126, 176, 45);
 		frame.getContentPane().add(ajoutadherent);
 		
-		JButton ajoutauteur = new JButton("Ajout Auteur");
+		JButton ajoutauteur = new JButton("");
+		ajoutauteur.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\ajout_auteur.png"));
 		ajoutauteur.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ajoutauteur vca = new ajoutauteur();
 			}
 		});
-		ajoutauteur.setBounds(243, 159, 146, 42);
+		ajoutauteur.setBounds(391, 302, 176, 45);
 		frame.getContentPane().add(ajoutauteur);
 		
-		JButton ajoutlivre = new JButton("Ajout Livre");
+		JButton ajoutlivre = new JButton("");
+		ajoutlivre.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\ajout_livre.png"));
 		ajoutlivre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ajoutlivre vca = new ajoutlivre();
 			}
 		});
-		ajoutlivre.setBounds(243, 65, 146, 45);
+		ajoutlivre.setBounds(391, 126, 176, 45);
 		frame.getContentPane().add(ajoutlivre);
 		
-		JButton btnPrcedent = new JButton("Précedent");
+		JButton btnPrcedent = new JButton("");
+		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(50, 159, 146, 42);
+		btnPrcedent.setBounds(126, 302, 165, 45);
 		frame.getContentPane().add(btnPrcedent);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setBounds(0, 0, 692, 430);
+		frame.getContentPane().add(lblNewLabel);
+		
 	}
 
 }

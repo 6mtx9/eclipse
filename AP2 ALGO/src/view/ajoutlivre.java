@@ -2,6 +2,7 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -62,80 +63,92 @@ public class ajoutlivre {
 	private void initialize() {
 		int auteur[]=new int[999];
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 355);
+		frame.setBounds(100, 100, 708, 469);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		titre = new JTextField();
-		titre.setBounds(146, 92, 237, 20);
+		titre.setBounds(214, 132, 448, 38);
 		frame.getContentPane().add(titre);
 		titre.setColumns(10);
 		
 		ISBN = new JTextField();
-		ISBN.setBounds(146, 60, 237, 20);
+		ISBN.setBounds(214, 66, 448, 38);
 		frame.getContentPane().add(ISBN);
 		ISBN.setColumns(10);
 		
 		JTextArea txtrAda = new JTextArea();
+		txtrAda.setForeground(Color.YELLOW);
 		txtrAda.setEditable(false);
-		txtrAda.setFont(new Font("Arial", Font.PLAIN, 13));
+		txtrAda.setFont(new Font("Dialog", Font.BOLD, 25));
 		txtrAda.setBackground(new Color(240, 240, 240));
 		txtrAda.setText("Titre : ");
-		txtrAda.setBounds(47, 92, 62, 23);
+		txtrAda.setBounds(47, 127, 95, 38);
 		frame.getContentPane().add(txtrAda);
+		txtrAda.setOpaque(false);
 		
 		txtrCodeBarre = new JTextArea();
+		txtrCodeBarre.setForeground(Color.YELLOW);
 		txtrCodeBarre.setEditable(false);
-		txtrCodeBarre.setFont(new Font("Arial", Font.PLAIN, 13));
+		txtrCodeBarre.setFont(new Font("Dialog", Font.BOLD, 25));
 		txtrCodeBarre.setBackground(new Color(240, 240, 240));
 		txtrCodeBarre.setText("Code Barre :");
-		txtrCodeBarre.setBounds(47, 61, 95, 22);
+		txtrCodeBarre.setBounds(47, 61, 148, 43);
 		frame.getContentPane().add(txtrCodeBarre);
+		txtrCodeBarre.setOpaque(false);
 		
 		txtrAuteur = new JTextArea();
-		txtrAuteur.setFont(new Font("Arial", Font.PLAIN, 13));
+		txtrAuteur.setForeground(Color.YELLOW);
+		txtrAuteur.setFont(new Font("Dialog", Font.BOLD, 25));
 		txtrAuteur.setText("Auteur : ");
 		txtrAuteur.setBackground(new Color(240, 240, 240));
-		txtrAuteur.setBounds(47, 159, 95, 22);
+		txtrAuteur.setBounds(47, 235, 105, 38);
 		frame.getContentPane().add(txtrAuteur);
+		txtrAuteur.setOpaque(false);
 		
 		r = new JTextArea();
+		r.setForeground(Color.YELLOW);
 		r.setEditable(false);
-		r.setFont(new Font("Arial", Font.PLAIN, 21));
+		r.setFont(new Font("Dialog", Font.BOLD, 25));
 		r.setBackground(new Color(240, 240, 240));
 		r.setText("Page d'ajout de livres");
-		r.setBounds(118, 11, 237, 38);
+		r.setBounds(253, 17, 362, 38);
 		frame.getContentPane().add(r);
+		r.setOpaque(false);
 		
-		btnPrcedent = new JButton("Précedent");
+		btnPrcedent = new JButton("");
+		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
 			}
 		});
 		btnPrcedent.setFont(new Font("Dialog", Font.PLAIN, 17));
-		btnPrcedent.setBounds(25, 261, 117, 37);
+		btnPrcedent.setBounds(48, 319, 168, 48);
 		frame.getContentPane().add(btnPrcedent);
 		
 		prix = new JTextField();
 		prix.setColumns(10);
-		prix.setBounds(146, 123, 237, 20);
+		prix.setBounds(214, 181, 448, 38);
 		frame.getContentPane().add(prix);
 		
 		txtrPrix = new JTextArea();
+		txtrPrix.setForeground(Color.YELLOW);
 		txtrPrix.setEditable(false);
 		txtrPrix.setText("Prix : ");
-		txtrPrix.setFont(new Font("Dialog", Font.PLAIN, 13));
+		txtrPrix.setFont(new Font("Dialog", Font.BOLD, 25));
 		txtrPrix.setBackground(new Color(240, 240, 240));
-		txtrPrix.setBounds(47, 127, 62, 23);
+		txtrPrix.setBounds(47, 187, 95, 37);
 		frame.getContentPane().add(txtrPrix);
+		txtrPrix.setOpaque(false);
 		
 		JLabel sortie = new JLabel("");
 		sortie.setBounds(47, 204, 336, 31);
 		frame.getContentPane().add(sortie);
 		
 		JComboBox <String>listeauteur = new JComboBox<String>();
-		listeauteur.setBounds(146, 155, 237, 24);
+		listeauteur.setForeground(Color.RED);
+		listeauteur.setBounds(214, 240, 448, 38);
 		frame.getContentPane().add(listeauteur);
 		// System.out.println(mainMVC.getM().getListAuteur().size());
 		for (int i=0;i<mainMVC.getM().getListAuteur().size();i++) {
@@ -144,7 +157,8 @@ public class ajoutlivre {
 		}
 		
 		
-		JButton entrer = new JButton("Entrer");
+		JButton entrer = new JButton("");
+		entrer.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
 		entrer.setFont(new Font("Arial", Font.PLAIN, 17));
 		entrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -166,9 +180,12 @@ public class ajoutlivre {
 				}
 			}
 		});
-		entrer.setBounds(170, 261, 107, 38);
+		entrer.setBounds(370, 319, 138, 48);
 		frame.getContentPane().add(entrer);
 		
-		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setBounds(0, 0, 692, 430);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }
