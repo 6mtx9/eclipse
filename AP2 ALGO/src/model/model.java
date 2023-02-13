@@ -168,7 +168,7 @@ public class model {
 	{
 		for(int i=0;i<ListAuteur.size();i++)
 		{
-			if(ListLivre.get(i).getISBN().equals(num))
+			if(ListAuteur.get(i).getNum()==Integer.parseInt(num))
 			{
 				return ListAuteur.get(i);
 			}
