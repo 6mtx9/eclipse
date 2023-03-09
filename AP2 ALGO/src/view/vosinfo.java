@@ -130,7 +130,7 @@ public class vosinfo {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnPrcedent_1 = new JButton("");
-		btnPrcedent_1.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent_1.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent_1.setForeground(Color.ORANGE);
 		btnPrcedent_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -237,7 +237,7 @@ public class vosinfo {
 		frame.getContentPane().add(list);
 		
 		JButton valider = new JButton("Valider");
-		valider.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
+		valider.setIcon(new ImageIcon("photo/valider.png"));
 		valider.setForeground(Color.ORANGE);
 		valider.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		valider.addActionListener(new ActionListener() {
@@ -270,7 +270,7 @@ public class vosinfo {
 		valider.setBorderPainted(false);
 		
 		JButton btnSupprimerVosDonnes = new JButton("");
-		btnSupprimerVosDonnes.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\supprimerinfos.png"));
+		btnSupprimerVosDonnes.setIcon(new ImageIcon("photo/supprimerinfos.png"));
 		btnSupprimerVosDonnes.setForeground(Color.ORANGE);
 		btnSupprimerVosDonnes.setOpaque(false);
 		btnSupprimerVosDonnes.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -296,7 +296,7 @@ public class vosinfo {
 		frame.getContentPane().add(lblListeDeVos);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		lblNewLabel.setBounds(0, 0, 692, 430);
 		frame.getContentPane().add(lblNewLabel);
 		

@@ -118,14 +118,14 @@ public class ajoutauteur {
 		frame.getContentPane().add(dateN);
 
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
+		btnNewButton.setIcon(new ImageIcon("photo/valider.png"));
 
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 17));
 		btnNewButton.setBounds(389, 371, 130, 48);
 		frame.getContentPane().add(btnNewButton);
 
 		JButton btnPrcedent = new JButton("");
-		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -177,7 +177,7 @@ public class ajoutauteur {
 		});
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		lblNewLabel.setBounds(0, 0, 692, 430);
 		frame.getContentPane().add(lblNewLabel);
 	}

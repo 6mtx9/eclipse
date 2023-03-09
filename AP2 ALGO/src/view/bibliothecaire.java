@@ -54,7 +54,7 @@ public class bibliothecaire {
 		frame.getContentPane().setLayout(null);
 		
 		JButton ajoutadherent = new JButton("");
-		ajoutadherent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\ajout_adherent.png"));
+		ajoutadherent.setIcon(new ImageIcon("photo/ajout_adherent.png"));
 		ajoutadherent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ajoutadherent vca = new ajoutadherent();
@@ -64,7 +64,7 @@ public class bibliothecaire {
 		frame.getContentPane().add(ajoutadherent);
 		
 		JButton ajoutauteur = new JButton("");
-		ajoutauteur.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\ajout_auteur.png"));
+		ajoutauteur.setIcon(new ImageIcon("photo/ajout_auteur.png"));
 		ajoutauteur.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ajoutauteur vca = new ajoutauteur();
@@ -74,7 +74,7 @@ public class bibliothecaire {
 		frame.getContentPane().add(ajoutauteur);
 		
 		JButton ajoutlivre = new JButton("");
-		ajoutlivre.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\ajout_livre.png"));
+		ajoutlivre.setIcon(new ImageIcon("photo/ajout_livre.png"));
 		ajoutlivre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ajoutlivre vca = new ajoutlivre();
@@ -84,7 +84,7 @@ public class bibliothecaire {
 		frame.getContentPane().add(ajoutlivre);
 		
 		JButton btnPrcedent = new JButton("");
-		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -95,7 +95,7 @@ public class bibliothecaire {
 		frame.getContentPane().add(btnPrcedent);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		lblNewLabel.setBounds(0, 0, 692, 430);
 		frame.getContentPane().add(lblNewLabel);
 		

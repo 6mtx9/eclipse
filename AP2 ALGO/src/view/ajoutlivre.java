@@ -117,7 +117,7 @@ public class ajoutlivre {
 		r.setOpaque(false);
 		
 		btnPrcedent = new JButton("");
-		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -158,7 +158,7 @@ public class ajoutlivre {
 		
 		
 		JButton entrer = new JButton("");
-		entrer.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
+		entrer.setIcon(new ImageIcon("photo/valider.png"));
 		entrer.setFont(new Font("Arial", Font.PLAIN, 17));
 		entrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -184,7 +184,7 @@ public class ajoutlivre {
 		frame.getContentPane().add(entrer);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		lblNewLabel.setBounds(0, 0, 692, 430);
 		frame.getContentPane().add(lblNewLabel);
 	}

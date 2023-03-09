@@ -27,7 +27,7 @@ public class model {
 		ListLivre=new ArrayList<LIVRE> ();
 		ListAuteur=new ArrayList<AUTEUR> ();
 		ListAdherent=new ArrayList<ADHERENT> ();
-		String BDD = "AP2prof";
+		String BDD = "ap2prof";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
 		String user = "root";
 		String passwd = "";
@@ -288,8 +288,10 @@ public class model {
 			precommande.setString(1, login);
 			String motdepassehash = hashageSHA256(motdepasse);
 			precommande.setString(2, motdepassehash);
+			System.out.println(precommande);
 			ResultSet resultat= precommande.executeQuery();
-			if (resultat!=null) {
+
+			if (resultat.next()) {
 				bibliothecaire vca = new bibliothecaire();
 				resultat = null;
 			}

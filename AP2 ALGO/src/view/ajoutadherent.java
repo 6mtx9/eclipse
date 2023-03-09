@@ -144,7 +144,7 @@ public class ajoutadherent {
 		num.setColumns(10);
 		
 		JButton btnPrcedent = new JButton("");
-		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -157,7 +157,7 @@ public class ajoutadherent {
 		
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
+		btnNewButton.setIcon(new ImageIcon("photo/valider.png"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (num.getText()!=null && nom.getText()!=null && prenom.getText()!=null && email.getText()!=null) {
@@ -187,7 +187,7 @@ public class ajoutadherent {
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		lblNewLabel.setBounds(0, 0, 692, 430);
 		frame.getContentPane().add(lblNewLabel);
 		

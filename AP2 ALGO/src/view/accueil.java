@@ -53,7 +53,7 @@ public class accueil {
 		frame.getContentPane().setLayout(null);
 		
 		JButton info = new JButton("");
-		info.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\vosinfos.png"));
+		info.setIcon(new ImageIcon("photo/vosinfos.png"));
 		info.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		info.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,7 +71,7 @@ public class accueil {
 		info.setOpaque(false);
 		
 		JButton livre = new JButton("");
-		livre.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\catalogue.png"));
+		livre.setIcon(new ImageIcon("photo/catalogue.png"));
 		livre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		livre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -89,7 +89,7 @@ public class accueil {
 		livre.setOpaque(false);
 		
 		JButton emprunter = new JButton("");
-		emprunter.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\emprunter.png"));
+		emprunter.setIcon(new ImageIcon("photo/emprunter.png"));
 		emprunter.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		emprunter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,7 +108,7 @@ public class accueil {
 		
 		
 		JButton rendre = new JButton("");
-		rendre.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\retour.png"));
+		rendre.setIcon(new ImageIcon("photo/retour.png"));
 		rendre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		rendre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -126,7 +126,7 @@ public class accueil {
 		rendre.setOpaque(false);
 		
 		JButton btnBibliothcaire = new JButton("");
-		btnBibliothcaire.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\bibliothecaire.png"));
+		btnBibliothcaire.setIcon(new ImageIcon("photo/bibliothecaire.png"));
 		btnBibliothcaire.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBibliothcaire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -172,7 +172,7 @@ public class accueil {
 		
 		
 		JLabel background = new JLabel("");
-		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		background.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		background.setBounds(0, -33, 692, 463);
 		frame.getContentPane().add(background);
 		

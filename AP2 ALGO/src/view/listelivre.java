@@ -63,7 +63,7 @@ public class listelivre {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnPrcedent = new JButton("");
-		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -96,7 +96,7 @@ public class listelivre {
 			tableauliste.add("ISBN : "+mainMVC.getM().getListLivre().get(i).getISBN()+" Titre : "+mainMVC.getM().getListLivre().get(i).getTitre()+" Prix : "+mainMVC.getM().getListLivre().get(i).getPrix()+" Disponibilité : "+emprunt);
 		}
 		JLabel background = new JLabel("");
-		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		background.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		background.setBounds(0, -33, 692, 463);
 		frame.getContentPane().add(background);
 	}

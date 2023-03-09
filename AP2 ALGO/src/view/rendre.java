@@ -91,7 +91,7 @@ public class rendre {
 		frame.getContentPane().add(ISBN);
 		
 		JButton btnPrcedent = new JButton("");
-		btnPrcedent.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\precedent.png"));
+		btnPrcedent.setIcon(new ImageIcon("photo/precedent.png"));
 		btnPrcedent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
@@ -110,7 +110,7 @@ public class rendre {
 		frame.getContentPane().add(verif);
 		
 		JButton valider = new JButton("");
-		valider.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\valider.png"));
+		valider.setIcon(new ImageIcon("photo/valider.png"));
 		valider.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		valider.setBorderPainted(false);
 		valider.setOpaque(false);
@@ -130,7 +130,7 @@ public class rendre {
 
 		
 		JLabel background = new JLabel("");
-		background.setIcon(new ImageIcon("C:\\Users\\Michel\\eclipse-workspace\\AP2 ALGO\\photo\\Bibliothèque.jpg"));
+		background.setIcon(new ImageIcon("photo/Bibliothèque.jpg"));
 		background.setBounds(0, -16, 692, 463);
 		frame.getContentPane().add(background);
 		
